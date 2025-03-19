@@ -1,0 +1,7 @@
+{
+  "name": "MiPrueba",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
