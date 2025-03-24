@@ -1,14 +1,14 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar color="mycolor">
     <ion-title>cities</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 
   <ion-row>
-    <ion-col sizeLg="6" sizeLg="6" sizeLg="12" *ngFor="let city of cities">
-      <ion-card>
+    <ion-col sizeLg="6" sizeMd="6" sizeXs="12" *ngFor="let city of cities">
+      <ion-card [routerLink]="['/city',city.id]">
         <img src="../../assets/cities-img/{{city.image}}">
         <div class="card-title">{{city.name}}</div>
       </ion-card>
