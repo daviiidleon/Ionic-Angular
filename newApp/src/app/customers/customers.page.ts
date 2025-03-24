@@ -44,12 +44,15 @@ export class CustomersPage implements OnInit {
 
   users: any = [];
 
+  permission: boolean | undefined;
+
   constructor(
     private router: Router,
     private http: HttpClient,
   ) { }
 
   ngOnInit() {
+    this.permission = true;
     console.log("hola");
     this.getUsers().subscribe(res => {
       console.log("Res", res);

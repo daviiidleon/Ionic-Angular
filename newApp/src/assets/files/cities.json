@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "description": "Alicante",
+      "image": "avatar-han.png"
+    },
+    {
+      "description": "Valencia",
+      "image": "avatar-luke.png"
+    },
+    {
+      "description": "Castelllón",
+      "image": "avatar-leia.png"
+    }
+  ]
+}

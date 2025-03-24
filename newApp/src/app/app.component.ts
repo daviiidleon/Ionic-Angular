@@ -3,7 +3,26 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { searchSharp, homeSharp, peopleSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp } from 'ionicons/icons';
+import {
+  searchSharp,
+  homeSharp,
+  peopleSharp,
+  mailOutline,
+  mailSharp,
+  paperPlaneOutline,
+  paperPlaneSharp,
+  heartOutline,
+  heartSharp,
+  archiveOutline,
+  archiveSharp,
+  trashOutline,
+  trashSharp,
+  warningOutline,
+  warningSharp,
+  bookmarkOutline,
+  bookmarkSharp,
+  locationSharp
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +33,11 @@ import { searchSharp, homeSharp, peopleSharp, mailOutline, mailSharp, paperPlane
 export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Customers', url: '/customers', icon: 'people' }
+    { title: 'Customers', url: '/customers', icon: 'people' },
+    { title: 'Cities', url: '/cities', icon: 'location' }
   ];
   public labels = [''];
   constructor() {
-    addIcons({ searchSharp,homeSharp, peopleSharp , mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+    addIcons({ locationSharp, searchSharp, homeSharp, peopleSharp , mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }
 }
