@@ -18,5 +18,13 @@ export const routes: Routes = [
     path: 'cities',
     loadComponent: () => import('./cities/cities.page').then( m => m.CitiesPage)
   },
+  {
+    path: 'city/:id',
+    loadComponent: () => import('./city/city.page').then( m => m.CityPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },
 
 ];
