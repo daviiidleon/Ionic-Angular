@@ -10,7 +10,7 @@ import {
   IonItem,
   IonLabel,
   IonList,
-  IonListHeader,
+  IonListHeader, IonRefresher, IonRefresherContent,
   IonSearchbar,
   IonTitle,
   IonToolbar
@@ -42,6 +42,8 @@ import { map } from "rxjs/operators";
     IonIcon,
     HttpClientModule,
     IonSearchbar,
+    IonRefresher,
+    IonRefresherContent,
     // Añade HttpClientModule aquí
   ]
 })
@@ -91,6 +93,16 @@ export class CustomersPage implements OnInit {
         return (user.name.toLowerCase().indexOf(text.toLowerCase()) >-1);  // Filtro por nombre
       });
     }
+  }
+
+  doRefresh(event: any) {
+    this.getUsers();
+    console.log('Begin async operation')
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
   }
 
 
