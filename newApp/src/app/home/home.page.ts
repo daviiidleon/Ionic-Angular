@@ -12,6 +12,7 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import {RouterLink} from "@angular/router";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 
 @Component({
   selector: 'app-home',
@@ -22,9 +23,20 @@ import {RouterLink} from "@angular/router";
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  code: any;
+  constructor(private barcodeScanner: BarcodeScanner) { }
 
   ngOnInit() {
+
+  }
+
+  scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.code = barcodeData.text;
+      console.log('Barcode data: ', this.code);
+    }).catch(err => {
+      console.log('Error, err');
+    });
   }
 
 }
