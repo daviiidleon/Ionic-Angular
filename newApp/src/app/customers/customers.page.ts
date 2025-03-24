@@ -5,10 +5,13 @@ import {
   IonAvatar,
   IonButton,
   IonContent,
-  IonHeader, IonIcon,
+  IonHeader,
+  IonIcon,
   IonItem,
   IonLabel,
-  IonList, IonListHeader,
+  IonList,
+  IonListHeader,
+  IonSearchbar,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -37,12 +40,15 @@ import { map } from "rxjs/operators";
     IonAvatar,
     IonListHeader,
     IonIcon,
-    HttpClientModule  // Añade HttpClientModule aquí
+    HttpClientModule,
+    IonSearchbar,
+    // Añade HttpClientModule aquí
   ]
 })
 export class CustomersPage implements OnInit {
 
   users: any = [];
+  searchedUser: any = [];
 
   permission: boolean | undefined;
 
@@ -57,6 +63,7 @@ export class CustomersPage implements OnInit {
     this.getUsers().subscribe(res => {
       console.log("Res", res);
       this.users = res;
+      this.searchedUser = [...this.users];
     });
   }
 
@@ -73,5 +80,20 @@ export class CustomersPage implements OnInit {
         })
       )
   }
+
+  searchCustomer(event: any) {
+    const text = event.target.value;  // Obtenemos el valor del input
+
+    if (!text || text.trim() === '') {
+      this.searchedUser = [...this.users];  // Si no hay texto, mostramos todos los usuarios
+    } else {
+      this.searchedUser = this.users.filter((user: any) => {
+        return (user.name.toLowerCase().indexOf(text.toLowerCase()) >-1);  // Filtro por nombre
+      });
+    }
+  }
+
+
+
 
 }

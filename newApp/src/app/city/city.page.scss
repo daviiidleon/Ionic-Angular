@@ -1,0 +1,22 @@
+ion-toolbar {
+  background-color: var(--ion-color-mycolor);
+}
+
+/* Establece un tamaño fijo para las imágenes en las tarjetas */
+ion-card {
+  position: relative;
+  text-align: center;
+  border-radius: 15px;
+}
+
+/* Puedes personalizar los títulos de las tarjetas */
+.card-title {
+  font-size: 23px;  /* Tamaño de la fuente */
+  font-weight: bold;
+  margin-top: 8px;
+  margin-top: 8px;
+}
+
+.desc {
+  margin: 50px;
+}

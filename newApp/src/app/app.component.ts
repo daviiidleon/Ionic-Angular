@@ -21,7 +21,8 @@ import {
   warningSharp,
   bookmarkOutline,
   bookmarkSharp,
-  locationSharp
+  locationSharp,
+  logInSharp
 } from 'ionicons/icons';
 
 @Component({
@@ -34,10 +35,11 @@ export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Customers', url: '/customers', icon: 'people' },
-    { title: 'Cities', url: '/cities', icon: 'location' }
+    { title: 'Cities', url: '/cities', icon: 'location' },
+    { title: 'Login', url: '/login', icon: 'log-in' }
   ];
   public labels = [''];
   constructor() {
-    addIcons({ locationSharp, searchSharp, homeSharp, peopleSharp , mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+    addIcons({ logInSharp, locationSharp, searchSharp, homeSharp, peopleSharp , mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }
 }
