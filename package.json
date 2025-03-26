@@ -1,11 +1,4 @@
 {
   "dependencies": {
-    "@angular/core": "^19.2.3",
-    "@angular/platform-browser": "^19.2.3",
-    "@angular/router": "^19.2.3",
-    "@ionic-native/core": "^5.36.0",
-    "@ionic/angular": "^8.5.1",
-    "ionicons": "^7.4.0",
-    "rxjs": "^6.6.7"
   }
 }
