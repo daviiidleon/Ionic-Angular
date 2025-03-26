@@ -6,16 +6,20 @@ ion-content {
   align-items: center;
   height: 100vh; /* Ocupar toda la pantalla */
   padding-top: 0;
+  position: relative; /* Esto es necesario para poder posicionar el contenedor encima de la imagen */
 }
 
-/* ==== Contenedor principal de la página ==== */
+/* ==== Contenedor principal de la página con la imagen como fondo ==== */
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%; /* Asegura que ocupe toda la altura de la pantalla */
+  position: relative; /* Contenedor que tendrá la imagen de fondo */
 }
 
+/* Contenedor del contenido sobre la imagen */
 .container {
   display: flex;
   flex-direction: column;
@@ -23,31 +27,39 @@ ion-content {
   width: 90%;
   max-width: 400px;
   padding: 30px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
   border-radius: 20px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-top: 100px; /* Agregar margen superior para separar el contenedor de la parte superior */
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2; /* Asegura que el contenedor quede por encima de la imagen */
 }
 
-.form-container {
+/* Estilo de la imagen de fondo */
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  transition: all 0.3s ease; /* Transición suave para expandir el formulario */
-  max-height: 0; /* Comienza colapsado */
-  overflow: hidden; /* Ocultar contenido colapsado */
+  height: 100%;
+  background-image: url('../../assets/productMarket/decoracion.jpg'); /* Ruta de la imagen */
+  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  opacity: 0.4; /* Ajusta la opacidad para que no opaque el contenido */
+  z-index: 1; /* Pone la imagen detrás del contenedor */
 }
 
-.form-container.expanded {
-  max-height: 500px; /* Expande el formulario */
-}
-
+/* ==== Estilo de la imagen (logo de la tienda) ==== */
 .logo {
   width: 200px; /* Aumenta el tamaño de la imagen */
   height: auto;
   margin-bottom: 30px; /* Separa la imagen del texto */
 }
 
+/* ==== Estilo del título ==== */
 h2 {
   font-size: 36px; /* Aumenta el tamaño del título "Bienvenido" */
   margin-bottom: 30px; /* Más espacio debajo del título */
@@ -76,9 +88,8 @@ ion-input {
 
 ion-button {
   width: 100%;
-  height: 30px;
+  height: 20px; /* Ajusta el tamaño del botón */
   font-size: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-right: 20px;
 }
