@@ -2,6 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonIcon, IonButtons } from '@ionic/angular/standalone';
+import {
+  search,
+  cartSharp,
+  shirtSharp,
+  logInSharp,
+  homeSharp,
+  mailOutline,
+  mailSharp,
+  paperPlaneOutline,
+  paperPlaneSharp,
+  heartOutline,
+  heartSharp,
+  archiveOutline,
+  archiveSharp,
+  trashOutline,
+  trashSharp,
+  warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
+} from 'ionicons/icons';
+import {addIcons} from "ionicons";
 
 @Component({
   selector: 'app-home',
@@ -22,7 +41,10 @@ export class HomePage implements OnInit {
   showLoginForm = false;
   showRegisterForm = false;
 
-  constructor() {}
+  constructor() {
+    addIcons({ cartSharp, shirtSharp ,logInSharp,homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+
+  }
 
   ngOnInit() {}
 

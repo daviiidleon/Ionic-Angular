@@ -77,12 +77,41 @@ ion-input {
 }
 
 ion-button {
-  width: 100%;
+  width: auto;
   height: 50px;
   font-size: 18px;
   margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   --border-radius: 25px; /* Bordes redondeados */
   --background: #000000; /* Color negro elegante */
   --color: white; /* Color del texto en blanco */
   --box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+ion-button ion-icon {
+  margin-right: 10px;  /* Espacio entre el icono y el texto */
+  font-size: 22px;      /* Tamaño del icono */
+}
+
+/* Aseguramos que el texto se centre con el icono */
+ion-button span {
+  display: inline-block;
+  margin-left: 10px; /* Añadir espacio entre el icono y el texto */
+  text-align: center; /* Asegurar que el texto esté centrado */
+}
+
+/* Estilo cuando se hace clic en el botón */
+ion-button:active {
+  --background: #333;  /* Color cuando el botón está presionado */
+}
+
+ion-button[disabled] {
+  --background: #888;  /* Color para el botón deshabilitado */
 }

@@ -4,6 +4,7 @@
     <ion-buttons slot="end">
       <!-- Botón para abrir el formulario de login -->
       <ion-button (click)="toggleForm()">
+        <ion-icon slot="start" name="log-in"></ion-icon> <!-- Icono de login -->
         {{ showLoginForm || showRegisterForm ? 'Cerrar Formulario' : 'Iniciar Sesión' }}
       </ion-button>
     </ion-buttons>
