@@ -5,64 +5,95 @@ ion-toolbar {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Contenedor de los productos */
-ion-item {
+/* Contenedor en cuadrícula */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /* Aumenta el tamaño mínimo de los cards */
+  gap: 20px; /* Espaciado entre los productos */
+  padding: 10px;
+}
+
+/* Cards de producto */
+.product-card {
   border-radius: 10px;
-  margin: 10px 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   background: #fff;
-  display: flex;
-  flex-direction: row; /* Asegura que la imagen y el texto estén en fila */
-  padding: 10px; /* Espaciado dentro del contenedor */
-  height: 150px; /* Fija la altura de todos los productos */
+  overflow: hidden;
   transition: transform 0.2s ease-in-out;
-  border: none; /* Elimina bordes internos de los items */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 450px; /* Aumenta la altura del card */
+  padding: 10px;
+  justify-content: space-between; /* Alinea la imagen y el texto */
 }
 
-/* Estilo cuando el producto es hover */
-ion-item:hover {
-  transform: scale(1.02); /* Efecto de zoom al pasar el mouse */
-}
-
-/* Establece un tamaño fijo para las imágenes sin distorsión */
-ion-thumbnail {
-  width: 120px; /* Tamaño fijo para miniaturas */
-  height: 120px; /* Asegura que la altura de la imagen sea fija */
+/* Contenedor de la imagen */
+.image-container {
+  width: 100%;
+  height: 300px; /* Aumenta la altura de la imagen */
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
-  overflow: hidden; /* Asegura que no se salgan las imágenes de los bordes */
-  border: none; /* Elimina bordes en el contenedor de la imagen */
+  overflow: hidden;
 }
 
-ion-thumbnail img {
+.image-container img {
   width: 100%;
-  height: 100%; /* La imagen ocupa todo el espacio de la miniatura */
-  object-fit: contain; /* Se asegura de que la imagen se muestre completa sin recortes */
-  border-radius: 6px;
-  display: block; /* Asegura que no haya espacio extra alrededor de la imagen */
-  border: none; /* Elimina cualquier borde adicional en la imagen */
+  height: 100%;
+  object-fit: contain; /* Asegura que la imagen se vea completamente, sin distorsión ni recorte */
 }
 
-/* Título del producto */
-ion-label h2 {
-  font-size: 1.1rem;
+/* Contenedor de la información (nombre y precio) */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.info-container h2 {
+  font-size: 1rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 4px;
-  text-align: left;
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Agrega "..." si el nombre es muy largo */
+  max-width: 100%;
 }
 
-/* Descripción del producto */
-ion-label p {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 6px;
-  height: 50px; /* Asegura que la descripción no sobresalga y tenga la misma altura en todos los productos */
-  overflow: hidden; /* Oculta cualquier texto que sobresalga */
-  text-align: left;
+.info-container .price {
+  font-size: 1rem;
+  color: #777; /* Gris para el precio */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
 }
+
+/* Estilo para el search bar */
+ion-searchbar {
+  padding: 0 15px; /* Añade espacio a los lados para mantenerlo equilibrado */
+  --background: #f8f8f8;
+  --color: #333;
+  border-radius: 8px;
+  border: none;
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 600px) {
+  ion-searchbar {
+    padding: 0 10px; /* Reduce el padding en pantallas pequeñas */
+    width: calc(100% - 20px); /* Asegura que se mantenga dentro de los márgenes */
+    margin-left: 10px; /* Agrega margen izquierdo para que no quede pegado */
+    margin-right: 10px; /* Agrega margen derecho para que no quede pegado */
+  }
+}
+
+
 
 /* Estilo del header de la lista */
 ion-list-header {
@@ -74,21 +105,50 @@ ion-list-header {
   color: #222;
   border-radius: 10px;
   margin: 10px 15px;
-  border: none; /* Elimina cualquier borde en el header */
-}
-
-/* Estilo para el search bar */
-ion-searchbar {
-  margin: 10px 15px;
-  border-radius: 8px;
-  --background: #f8f8f8;
-  --color: #333;
-  border: none; /* Elimina bordes del search bar */
+  border: none;
 }
 
 /* Contenido principal */
 ion-content {
   padding: 10px;
   background-color: #f9f9f9;
-  border: none; /* Elimina bordes del contenido */
+  border: none;
+}
+
+ion-icon {
+  margin-right: 40px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, solo una columna */
+    gap: 15px; /* Reduce el espacio entre los productos */
+  }
+
+  /* Ajusta las imágenes en pantallas pequeñas */
+  .image-container {
+    height: 250px; /* Reduce la altura de la imagen en dispositivos móviles */
+  }
+
+  .product-card {
+    height: auto; /* Deja que la altura se ajuste según el contenido */
+    padding: 5px;
+  }
+
+  .info-container h2 {
+    font-size: 0.9rem; /* Reduce el tamaño del texto del nombre del producto */
+  }
+
+  .info-container .price {
+    font-size: 0.9rem; /* Reduce el tamaño del texto del precio */
+  }
+
+  ion-searchbar {
+    margin: 5px 10px; /* Ajusta los márgenes del search bar en móviles */
+  }
+
+  ion-list-header {
+    font-size: 1.1rem; /* Reduce el tamaño del header en pantallas pequeñas */
+  }
 }

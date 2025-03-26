@@ -1,59 +1,88 @@
-/* ==== Estilo para el Header ==== */
-ion-header {
-  --background: #ffffff;
-  --color: #333;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+/* ==== Fondo y estructura principal ==== */
+ion-content {
+  --background: #f4f4f4; /* Fondo gris claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupar toda la pantalla */
+  padding-top: 0;
 }
 
-/* ==== Contenedor principal con más espacio hacia abajo ==== */
-ion-content {
+/* ==== Contenedor principal de la página ==== */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Alinea el contenido hacia el inicio, para que esté más abajo */
-  height: 100%;
-  background-color: #f9f9f9;
-  padding-top: 50px; /* Espaciado superior más grande */
+  width: 90%;
+  max-width: 400px; /* Contenedor con un tamaño limitado */
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+  text-align: center; /* Centrado de todo el contenido */
+  margin-top: -10px;
+  transition: all 0.3s ease; /* Transición suave para el recuadro */
 }
 
-/* ==== Título principal con más separación ==== */
-.titulo {
-  margin-top: 10%;
-  font-size: 2rem;
-  font-weight: bold;
+.form-container {
+  width: 100%;
+  transition: all 0.3s ease; /* Transición suave para expandir el formulario */
+  max-height: 0; /* Comienza colapsado */
+  overflow: hidden; /* Ocultar contenido colapsado */
+}
+
+.form-container.expanded {
+  max-height: 500px; /* Expande el formulario */
+}
+
+/* ==== Estilo de la imagen (logo de la tienda) ==== */
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* ==== Estilo del título ==== */
+h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
   color: #333;
-  text-align: center;
-  margin-bottom: 25px; /* Separación mayor entre el título y la imagen */
-}
-
-/* ==== Imagen central más grande y completamente visible ==== */
-ion-content img {
-  display: block;
-  width: 90%;  /* Ocupa todo el ancho posible */
-  height: auto; /* Mantiene la proporción */
-  max-width: 900px;  /* Más grande en pantallas grandes */
-  border-radius: 12px;
-  margin: 20px auto; /* Centrada horizontalmente con márgenes */
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
-}
-
-/* ==== Estilo del Botón ==== */
-ion-button {
-  display: block;
-  width: 85%;
-  max-width: 320px;
-  margin: 20px auto; /* Asegura que el botón se centre horizontalmente */
-  font-size: 1.3rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 1px;
-  color: white;
-  border-radius: 10px;
-  padding: 12px;
-  transition: all 0.3s ease-in-out;
 }
 
-/* ==== Efecto Hover del Botón ==== */
-ion-button:hover {
-  transform: scale(1.05);
+h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+ion-input {
+  width: 100%;
+  height: 50px; /* Ajustamos la altura para que los inputs no sean tan grandes */
+  font-size: 16px;
+  margin-bottom: 20px; /* Espacio entre los campos de entrada */
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 10px; /* Bordes redondeados */
+  --background: #f7f7f7;
+  --box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ion-button {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  margin-top: 20px;
+  --border-radius: 25px; /* Bordes redondeados */
+  --background: #000000; /* Color negro elegante */
+  --color: white; /* Color del texto en blanco */
+  --box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }

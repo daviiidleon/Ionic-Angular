@@ -1,3 +1,53 @@
+/* Reducir el ancho del ion-menu en pantallas grandes */
+ion-menu {
+  --width: 200px; /* Ancho en pantallas grandes */
+  --min-width: 200px;
+  --max-width: 280px;
+}
+
+/* Ajuste para móviles: hacer el menú más grande */
+@media (max-width: 767px) {
+  ion-menu {
+    --width: 260px; /* Aumentado el ancho del menú en móvil */
+    --min-width: 260px;
+    --max-width: 260px;
+  }
+
+  /* Hacer que el menú sea tipo overlay en móviles */
+  ion-split-pane {
+    display: block; /* Forzar que el contenido ocupe el 100% */
+  }
+
+  ion-menu {
+    display: none; /* Ocultar el menú hasta que se abra */
+  }
+
+  ion-menu.show-menu {
+    display: block; /* Mostrar menú cuando se necesite */
+    width: 260px; /* Ajustar el ancho */
+  }
+}
+
+/* Asegurar que el contenido principal ocupe más espacio */
+ion-split-pane {
+  --side-width: 200px; /* Debe coincidir con el ancho del menú */
+  --border: none; /* Elimina cualquier borde innecesario */
+}
+
+/* Ajustar el contenido principal (router-outlet) */
+ion-router-outlet {
+  width: calc(100% - 200px); /* Resta el ancho del menú */
+  transition: width 0.3s ease-in-out;
+}
+
+/* Para móviles: contenido ocupa el 100% si el menú no está abierto */
+@media (max-width: 767px) {
+  ion-router-outlet {
+    width: 100%;
+  }
+}
+
+/* Estilos del menú */
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
@@ -29,17 +79,13 @@ ion-menu.md ion-list#inbox-list {
 ion-menu.md ion-list#inbox-list ion-list-header {
   font-size: 22px;
   font-weight: 600;
-
   min-height: 20px;
 }
 
 ion-menu.md ion-list#labels-list ion-list-header {
   font-size: 16px;
-
   margin-bottom: 18px;
-
   color: #757575;
-
   min-height: 26px;
 }
 
@@ -110,7 +156,6 @@ ion-menu.ios ion-note {
 ion-note {
   display: inline-block;
   font-size: 16px;
-
   color: var(--ion-color-medium-shade);
 }
 

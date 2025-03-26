@@ -28,7 +28,6 @@ import { shirtSharp ,logInSharp ,homeSharp ,mailOutline, mailSharp, paperPlaneOu
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Login', url: '/login', icon: 'log-in' },
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Productos', url: '/product-list', icon: 'shirt' }
   ];
