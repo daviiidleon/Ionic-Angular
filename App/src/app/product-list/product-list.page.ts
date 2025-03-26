@@ -13,18 +13,37 @@ import {
   IonTitle,
   IonToolbar,
   IonRefresher,
-  IonRefresherContent
+  IonRefresherContent, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
 } from '@ionic/angular/standalone';
 import { Product, ProductsService } from '../services/products.service';
-import { search } from 'ionicons/icons';
+import {
+  search,
+  cartSharp,
+  shirtSharp,
+  logInSharp,
+  homeSharp,
+  mailOutline,
+  mailSharp,
+  paperPlaneOutline,
+  paperPlaneSharp,
+  heartOutline,
+  heartSharp,
+  archiveOutline,
+  archiveSharp,
+  trashOutline,
+  trashSharp,
+  warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
+} from 'ionicons/icons';
 import {RouterLink} from "@angular/router";
+import {addIcons} from "ionicons";
+
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.page.html',
   styleUrls: ['./product-list.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonItem, IonLabel, IonList, IonListHeader, IonThumbnail, IonSearchbar, IonRefresher, IonRefresherContent, RouterLink]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonItem, IonLabel, IonList, IonListHeader, IonThumbnail, IonSearchbar, IonRefresher, IonRefresherContent, RouterLink, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent]
 })
 export class ProductListPage implements OnInit {
 
@@ -32,6 +51,11 @@ export class ProductListPage implements OnInit {
   searchedProducts: Product[] = [];
 
   productService = inject(ProductsService);
+
+  constructor() {
+    addIcons({ cartSharp, shirtSharp ,logInSharp,homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+
+  }
 
   async ngOnInit() {
     // Inicializa los productos cuando la página se carga

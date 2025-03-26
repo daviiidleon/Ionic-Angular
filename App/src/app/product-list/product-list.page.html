@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Productos</ion-title>
+    <ion-icon name="cart-sharp" slot="end" size="large"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -23,19 +24,15 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
-    <ion-list-header>
-      <ion-label>Catálogo de Productos</ion-label>
-    </ion-list-header>
-    <ion-item *ngFor="let product of searchedProducts" [routerLink]="['/producto', product._id]">
-      <ion-thumbnail slot="start">
-        <img [src]="product.image" [alt]="product.name">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{product.name}}</h2>
-        <p>{{product.description}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of searchedProducts" [routerLink]="['/producto', product._id]">
+      <div class="image-container">
+        <img [src]="product.image" [alt]="product.name" />
+      </div>
+      <div class="info-container">
+        <h2>{{ product.name }}</h2>
+        <p class="price">{{ product.price | currency }}</p>
+      </div>
+    </div>
+  </div>
 </ion-content>
-
