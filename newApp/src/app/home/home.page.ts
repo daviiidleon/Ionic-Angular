@@ -14,6 +14,7 @@ import {
 import {RouterLink} from "@angular/router";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

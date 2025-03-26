@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles del Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Mostrar el Spinner mientras se cargan los datos -->
+  <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+
+  <!-- Detalles del Producto -->
+  <ion-card *ngIf="!isLoading && product">
+    <ion-card-header>
+      <ion-card-title>{{ product.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="product.image" alt="{{ product.name }}" />
+      <p>{{ product.description }}</p>
+      <p><strong>Precio: </strong>{{ product.price | currency }}</p>
+      <p><strong>Categoría: </strong>{{ product.category }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mensaje si no hay producto -->
+  <div *ngIf="!isLoading && !product">
+    <p>Producto no encontrado.</p>
+  </div>
+</ion-content>

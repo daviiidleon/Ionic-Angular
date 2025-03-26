@@ -1,0 +1,59 @@
+/* ==== Estilo para el Header ==== */
+ion-header {
+  --background: #ffffff;
+  --color: #333;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+}
+
+/* ==== Contenedor principal con más espacio hacia abajo ==== */
+ion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido hacia el inicio, para que esté más abajo */
+  height: 100%;
+  background-color: #f9f9f9;
+  padding-top: 50px; /* Espaciado superior más grande */
+}
+
+/* ==== Título principal con más separación ==== */
+.titulo {
+  margin-top: 10%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px; /* Separación mayor entre el título y la imagen */
+}
+
+/* ==== Imagen central más grande y completamente visible ==== */
+ion-content img {
+  display: block;
+  width: 90%;  /* Ocupa todo el ancho posible */
+  height: auto; /* Mantiene la proporción */
+  max-width: 900px;  /* Más grande en pantallas grandes */
+  border-radius: 12px;
+  margin: 20px auto; /* Centrada horizontalmente con márgenes */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+}
+
+/* ==== Estilo del Botón ==== */
+ion-button {
+  display: block;
+  width: 85%;
+  max-width: 320px;
+  margin: 20px auto; /* Asegura que el botón se centre horizontalmente */
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ==== Efecto Hover del Botón ==== */
+ion-button:hover {
+  transform: scale(1.05);
+}
