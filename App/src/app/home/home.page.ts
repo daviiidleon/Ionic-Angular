@@ -14,46 +14,87 @@ export class HomePage implements OnInit {
 
   email: string = '';
   password: string = '';
+  registerName: string = '';
   registerEmail: string = '';
   registerPassword: string = '';
+  registerPasswordConfirm: string = '';
+  forgotEmail: string = '';
+
   token = 'vvg7576g';
 
-  // Controla si se muestra el formulario de inicio de sesión o de registro
   showLoginForm = false;
   showRegisterForm = false;
+  showForgotPasswordForm = false;
 
   constructor() {}
 
   ngOnInit() {}
 
-  // Alternar entre los formularios de login y registro
+  showAnyForm() {
+    return this.showLoginForm || this.showRegisterForm || this.showForgotPasswordForm;
+  }
+
   toggleForm() {
-    if (this.showLoginForm || this.showRegisterForm) {
-      this.showLoginForm = false;
-      this.showRegisterForm = false;
+    if (this.showAnyForm()) {
+      this.closeAllForms();
     } else {
-      this.showLoginForm = true; // Muestra el formulario de login
+      this.showLoginForm = true;
     }
   }
 
-  // Función de inicio de sesión
+  openRegister(event: Event) {
+    event.preventDefault();
+    this.closeAllForms();
+    this.showRegisterForm = true;
+  }
+
+  openLogin(event: Event) {
+    event.preventDefault();
+    this.closeAllForms();
+    this.showLoginForm = true;
+  }
+
+  openForgotPassword(event: Event) {
+    event.preventDefault();
+    this.closeAllForms();
+    this.showForgotPasswordForm = true;
+  }
+
+  closeAllForms() {
+    this.showLoginForm = false;
+    this.showRegisterForm = false;
+    this.showForgotPasswordForm = false;
+  }
+
   login() {
     if (this.email && this.password) {
       localStorage.setItem('token', this.token);
       alert('Inicio de sesión exitoso');
-      this.showLoginForm = false; // Cierra el formulario de login
+      this.closeAllForms();
     } else {
       alert('Por favor, ingresa ambos campos');
     }
   }
 
-  // Función de registro
   register() {
-    if (this.registerEmail && this.registerPassword) {
+    if (this.registerName && this.registerEmail && this.registerPassword && this.registerPasswordConfirm) {
+      if (this.registerPassword !== this.registerPasswordConfirm) {
+        alert('Las contraseñas no coinciden');
+        return;
+      }
       alert('Registro exitoso');
-      this.showRegisterForm = false; // Cierra el formulario de registro
+      this.closeAllForms();
     } else {
-      alert('Por favor, ingresa ambos campos');
+      alert('Por favor, completa todos los campos');
+    }
+  }
+
+  recoverPassword() {
+    if (this.forgotEmail) {
+      alert(`Se ha enviado un correo de recuperación a: ${this.forgotEmail}`);
+      this.closeAllForms();
+    } else {
+      alert('Por favor, ingresa tu correo');
     }
   }
 }
