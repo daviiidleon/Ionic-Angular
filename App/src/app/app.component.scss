@@ -1,3 +1,20 @@
+/* ==== Estilo para la imagen/logo del menú ==== */
+.menu-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //padding: 0px 0 0px 0; /* espacio arriba y abajo */
+}
+
+.menu-logo-container img {
+  width: 300px; /* Puedes ajustar este valor (prueba también con 140px) */
+  margin-right: 10px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px; /* opcional: suaviza las esquinas */
+}
+
 /* Reducir el ancho del ion-menu en pantallas grandes */
 ion-menu {
   --width: 200px; /* Ancho en pantallas grandes */

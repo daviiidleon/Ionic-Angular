@@ -3,7 +3,9 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <img src="../assets/productMarket/logoRopaD.png">
+          <div class="menu-logo-container">
+          <img src="../assets/productMarket/logoRopaD.png" alt="logo">
+          </div>
 
           @for (p of appPages; track p; let i = $index) {
             <ion-menu-toggle auto-hide="false">

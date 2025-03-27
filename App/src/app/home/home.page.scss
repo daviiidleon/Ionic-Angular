@@ -1,25 +1,22 @@
-/* ==== Fondo y estructura principal ==== */
 ion-content {
-  --background: #f4f4f4; /* Fondo gris claro */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ocupar toda la pantalla */
-  padding-top: 0;
-  position: relative; /* Esto es necesario para poder posicionar el contenedor encima de la imagen */
+  --background: transparent;
+  display: block;
+  overflow-y: auto;
 }
 
-/* ==== Contenedor principal de la página con la imagen como fondo ==== */
 .wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../../assets/productMarket/decoracion.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%; /* Asegura que ocupe toda la altura de la pantalla */
-  position: relative; /* Contenedor que tendrá la imagen de fondo */
+  align-items: flex-start;
+  padding: 60px 0;
 }
 
-/* Contenedor del contenido sobre la imagen */
 .container {
   display: flex;
   flex-direction: column;
@@ -27,42 +24,27 @@ ion-content {
   width: 90%;
   max-width: 400px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 100px; /* Agregar margen superior para separar el contenedor de la parte superior */
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2; /* Asegura que el contenedor quede por encima de la imagen */
+  margin-top: 100px;
+  transition: all 0.4s ease;
 }
 
-/* Estilo de la imagen de fondo */
-.wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../assets/productMarket/decoracion.jpg'); /* Ruta de la imagen */
-  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-  background-position: center; /* Centra la imagen */
-  opacity: 0.4; /* Ajusta la opacidad para que no opaque el contenido */
-  z-index: 1; /* Pone la imagen detrás del contenedor */
+.container.expanded {
+  margin-bottom: 150px; /* Espacio para que haya scroll cuando se expanda */
 }
 
-/* ==== Estilo de la imagen (logo de la tienda) ==== */
 .logo {
-  width: 300px; /* Aumenta el tamaño de la imagen */
+  width: 250px;
   height: auto;
-  margin-bottom: 30px; /* Separa la imagen del texto */
+  margin-bottom: 30px;
 }
 
-/* ==== Estilo del título ==== */
 h2 {
-  font-size: 36px; /* Aumenta el tamaño del título "Bienvenido" */
-  margin-bottom: 30px; /* Más espacio debajo del título */
+  font-size: 36px;
+  margin-bottom: 30px;
   color: #333;
   font-weight: 600;
   letter-spacing: 1px;
@@ -76,20 +58,33 @@ h3 {
 
 ion-input {
   width: 100%;
-  height: 50px; /* Ajustamos la altura para que los inputs no sean tan grandes */
+  height: 50px;
   font-size: 16px;
-  margin-bottom: 20px; /* Espacio entre los campos de entrada */
+  margin-bottom: 20px;
   --padding-start: 16px;
   --padding-end: 16px;
-  --border-radius: 10px; /* Bordes redondeados */
+  --border-radius: 10px;
   --background: #f7f7f7;
   --box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 ion-button {
   width: 100%;
-  height: 20px; /* Ajusta el tamaño del botón */
+  height: 20px;
   font-size: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.links {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.links a {
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 8px;
+  font-size: 14px;
 }
