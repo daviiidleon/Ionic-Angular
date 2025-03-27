@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService, Product } from '../services/products.service';
-
-// Importar solo desde @ionic/angular/standalone si es standalone
 import {
   IonCard,
   IonCardContent,
@@ -16,7 +14,8 @@ import {
   IonTitle,
   IonToolbar,
   IonCol,
-  IonRow
+  IonRow,
+  IonButton
 } from "@ionic/angular/standalone";
 
 @Component({
@@ -37,7 +36,8 @@ import {
     IonCardHeader,
     IonCardTitle,
     IonCardContent,
-    IonSpinner
+    IonSpinner,
+    IonButton
   ]
 })
 export class ProductoPage implements OnInit {
@@ -46,13 +46,14 @@ export class ProductoPage implements OnInit {
   product: Product | null = null;
   isLoading: boolean = true;
 
+  quantity: number = 0;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService
   ) { }
 
   ngOnInit() {
-    // Obtener el id del producto desde la URL
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.productId) {
       this.loadProductDetail(this.productId);
@@ -68,5 +69,17 @@ export class ProductoPage implements OnInit {
       console.error('Error al cargar el producto:', error);
       this.isLoading = false;
     });
+  }
+
+  addToCart() {
+    if (this.quantity < 100) {
+      this.quantity++;
+    }
+  }
+
+  removeFromCart() {
+    if (this.quantity > 0) {
+      this.quantity--;
+    }
   }
 }
