@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Mostrar el Spinner mientras se cargan los datos -->
+  <!-- Spinner -->
   <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
-  <!-- Detalles del Producto -->
+  <!-- Producto -->
   <ion-card *ngIf="!isLoading && product">
     <ion-card-header>
       <ion-card-title>{{ product.name }}</ion-card-title>
@@ -17,12 +17,30 @@
     <ion-card-content>
       <img [src]="product.image" alt="{{ product.name }}" />
       <p>{{ product.description }}</p>
-      <p><strong>Precio: </strong>{{ product.price | currency }}</p>
-      <p><strong>Categoría: </strong>{{ product.category }}</p>
+      <p><strong>Precio:</strong> {{ product.price | currency }}</p>
+      <p><strong>Categoría:</strong> {{ product.category }}</p>
+
+      <div class="cart-controls">
+        <ion-row class="quantity-row">
+          <ion-col size="3">
+            <ion-button (click)="removeFromCart()" color="danger" [disabled]="quantity === 0">-</ion-button>
+          </ion-col>
+          <ion-col size="6" class="quantity-display">
+            <p>{{ quantity }}</p>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button (click)="addToCart()" color="success" [disabled]="quantity >= 100">+</ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-button expand="block" color="primary" [disabled]="quantity === 0">
+          Comprar ({{ quantity }} unidades)
+        </ion-button>
+      </div>
     </ion-card-content>
   </ion-card>
 
-  <!-- Mensaje si no hay producto -->
+  <!-- Producto no encontrado -->
   <div *ngIf="!isLoading && !product">
     <p>Producto no encontrado.</p>
   </div>
