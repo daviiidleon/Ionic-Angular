@@ -10,6 +10,7 @@ export interface Product {
   category: string;
   image: string;
   active: boolean;
+  sizes?: string[];  // Propiedad sizes agregada (puede ser opcional)
 }
 
 type ApiResponse = {
@@ -34,6 +35,11 @@ export class ProductsService {
 
   // Obtener un producto por ID
   getProductById(id: string): Promise<Product> {
-    return firstValueFrom(this.httpClient.get<Product>(`https://peticiones.online/api/products/${id}`));
+    return firstValueFrom(this.httpClient.get<Product>(`https://peticiones.online/api/products/${id}`)).then(product => {
+      // Aquí agregamos un ejemplo estático de tallas disponibles para los productos
+      // Puedes eliminar este código si tu API devuelve las tallas
+      product.sizes = ['S', 'M', 'L', 'XL'];  // Simulamos que todos los productos tienen estas tallas
+      return product;
+    });
   }
 }

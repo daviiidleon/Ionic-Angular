@@ -17,24 +17,25 @@
     <ion-card-content>
       <img [src]="product.image" alt="{{ product.name }}" />
       <p>{{ product.description }}</p>
-      <p><strong>Precioo:</strong> {{ product.price | currency }}</p>
-      <p><strong>Categoríaa:</strong> {{ product.category }}</p>
+      <p><strong>Precio:</strong> {{ product.price | currency }}</p>
+      <p><strong>Categoría:</strong> {{ product.category }}</p>
 
-      <div class="cart-controls">
-        <ion-row class="quantity-row">
-          <ion-col size="3">
-            <ion-button (click)="removeFromCart()" color="danger" [disabled]="quantity === 0">-</ion-button>
-          </ion-col>
-          <ion-col size="6" class="quantity-display">
-            <p>{{ quantity }}</p>
-          </ion-col>
-          <ion-col size="3">
-            <ion-button (click)="addToCart()" color="success" [disabled]="quantity >= 100">+</ion-button>
-          </ion-col>
-        </ion-row>
+      <!-- Selección de Tallas -->
+      <div class="size-selection">
+        <p><strong>Selecciona una talla:</strong></p>
+        <div class="sizes">
+          <div *ngFor="let size of product.sizes"
+               [class.selected]="selectedSize === size"
+               (click)="selectSize(size)">
+            {{ size }}
+          </div>
+        </div>
+      </div>
 
-        <ion-button expand="block" color="primary" [disabled]="quantity === 0">
-          Añadir a la cesta ({{ quantity }} unidades)
+      <!-- Botón de añadir a la cesta -->
+      <div class="add-to-cart-container">
+        <ion-button color="primary" [disabled]="!selectedSize">
+          Añadir a la cesta
         </ion-button>
       </div>
     </ion-card-content>
