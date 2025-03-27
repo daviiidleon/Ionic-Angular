@@ -1,22 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService, Product } from '../services/products.service';
-import {
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonContent,
-  IonHeader,
-  IonSpinner,
-  IonTitle,
-  IonToolbar,
-  IonCol,
-  IonRow,
-  IonButton
-} from "@ionic/angular/standalone";
+import { CurrencyPipe } from "@angular/common";
+import { FormsModule } from "@angular/forms"; // Este es el import correcto
+import { IonicModule } from '@ionic/angular'; // Importar el IonicModule
 
 @Component({
   selector: 'app-producto',
@@ -24,20 +11,9 @@ import {
   styleUrls: ['./producto.page.scss'],
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonCard,
-    IonCol,
-    IonRow,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardContent,
-    IonSpinner,
-    IonButton
+    IonicModule, // Aquí importamos el módulo necesario de Ionic
+    FormsModule, // Asegúrate de importar FormsModule si usas ngModel
+    CurrencyPipe
   ]
 })
 export class ProductoPage implements OnInit {
@@ -45,8 +21,9 @@ export class ProductoPage implements OnInit {
   productId: string | null = null;
   product: Product | null = null;
   isLoading: boolean = true;
-
-  quantity: number = 0;
+  quantity: number = 1;
+  sizes: string[] = ['S', 'M', 'L', 'XL'];
+  selectedSize: string | null = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -54,6 +31,7 @@ export class ProductoPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    // Obtener el id del producto desde la URL
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.productId) {
       this.loadProductDetail(this.productId);
@@ -71,15 +49,26 @@ export class ProductoPage implements OnInit {
     });
   }
 
-  addToCart() {
+  selectSize(size: string) {
+    this.selectedSize = size;
+  }
+
+  increaseQuantity() {
     if (this.quantity < 100) {
       this.quantity++;
     }
   }
 
-  removeFromCart() {
-    if (this.quantity > 0) {
+  decreaseQuantity() {
+    if (this.quantity > 1) {
       this.quantity--;
+    }
+  }
+
+  addToCart() {
+    if (this.selectedSize) {
+      // Aquí agregarías el producto al carrito con la cantidad y talla seleccionada
+      console.log(`Producto añadido al carrito: ${this.product?.name}, Talla: ${this.selectedSize}, Cantidad: ${this.quantity}`);
     }
   }
 }

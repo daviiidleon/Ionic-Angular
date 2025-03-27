@@ -5,42 +5,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Spinner -->
+  <!-- Mostrar el Spinner mientras se cargan los datos -->
   <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
-  <!-- Producto -->
+  <!-- Detalles del Producto -->
   <ion-card *ngIf="!isLoading && product">
     <ion-card-header>
-      <ion-card-title>{{ product.name }}</ion-card-title>
+      <ion-card-title>{{ product?.name }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <img [src]="product.image" alt="{{ product.name }}" />
-      <p>{{ product.description }}</p>
-      <p><strong>Precio:</strong> {{ product.price | currency }}</p>
-      <p><strong>Categoría:</strong> {{ product.category }}</p>
+      <ion-img [src]="product?.image" alt="{{ product?.name }}"></ion-img>
+      <p>{{ product?.description }}</p>
+      <p><strong>Precio: </strong>{{ product?.price | currency }}</p>
+      <p><strong>Categoría: </strong>{{ product?.category }}</p>
 
-      <div class="cart-controls">
-        <ion-row class="quantity-row">
-          <ion-col size="3">
-            <ion-button (click)="removeFromCart()" color="danger" [disabled]="quantity === 0">-</ion-button>
-          </ion-col>
-          <ion-col size="6" class="quantity-display">
-            <p>{{ quantity }}</p>
-          </ion-col>
-          <ion-col size="3">
-            <ion-button (click)="addToCart()" color="success" [disabled]="quantity >= 100">+</ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-button expand="block" color="primary" [disabled]="quantity === 0">
-          Comprar ({{ quantity }} unidades)
-        </ion-button>
+      <!-- Tallas disponibles -->
+      <div class="size-selection">
+        <p>Selecciona una talla:</p>
+        <div class="sizes">
+          <div *ngFor="let size of sizes"
+               [class.selected]="selectedSize === size"
+               (click)="selectSize(size)">
+            {{ size }}
+          </div>
+        </div>
       </div>
+
+      <!-- Contador y botones -->
+      <div class="counter">
+        <ion-button (click)="decreaseQuantity()" [disabled]="quantity === 1">-</ion-button>
+        <ion-input type="number" [(ngModel)]="quantity" [min]="1" [max]="100" readonly></ion-input>
+        <ion-button (click)="increaseQuantity()" [disabled]="quantity === 100">+</ion-button>
+      </div>
+
+      <!-- Botón de comprar -->
+      <ion-button (click)="addToCart()" [disabled]="!selectedSize">Añadir al carrito</ion-button>
     </ion-card-content>
   </ion-card>
 
-  <!-- Producto no encontrado -->
+  <!-- Mensaje si no hay producto -->
   <div *ngIf="!isLoading && !product">
     <p>Producto no encontrado.</p>
   </div>
