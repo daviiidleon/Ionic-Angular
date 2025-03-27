@@ -15,7 +15,7 @@ import {
   IonLabel,
   IonRouterOutlet,
   IonRouterLink,
-  IonButton, IonInput
+  IonButton, IonInput, IonImg
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { shirtSharp ,logInSharp ,homeSharp ,mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp } from 'ionicons/icons';
@@ -24,7 +24,7 @@ import { shirtSharp ,logInSharp ,homeSharp ,mailOutline, mailSharp, paperPlaneOu
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  imports: [ RouterLink, RouterLinkActive, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterLink, IonRouterOutlet, IonButton, IonContent, IonInput, IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterLink, IonRouterOutlet, IonButton, IonContent, IonInput, IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane, RouterLinkActive, IonImg],
 })
 export class AppComponent {
   public appPages = [
