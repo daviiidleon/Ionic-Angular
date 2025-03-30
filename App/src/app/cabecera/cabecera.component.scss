@@ -6,13 +6,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
-  height: 80px; /* ALTURA FIJA */
+  z-index: 9999; /* Siempre encima */
+  height: 80px; /* Altura fija */
   display: flex;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Contenedor de la cabecera */
 .cabecera-content {
   display: flex;
   align-items: center;
@@ -26,7 +27,7 @@
 }
 
 .menu-logo-container img {
-  max-height: 95px; /* El logo NUNCA hará crecer la cabecera */
+  max-height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -34,4 +35,20 @@
 .cabecera h1 {
   font-size: 1.2rem;
   margin: 0;
+}
+
+/* 💡 SOLUCIÓN: Asegurar que el contenido empiece después del header */
+:host {
+  display: block;
+  height: 80px; /* Igual a la altura de la cabecera */
+}
+
+/* Ajustar el contenido principal para que no quede oculto debajo del header */
+ion-content {
+  --padding-top: 90px; /* Ajustar según la altura del header */
+}
+
+ion-router-outlet {
+  margin-top: 90px; /* Ajustar margen del contenido */
+  display: block;
 }
