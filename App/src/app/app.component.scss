@@ -1,76 +1,84 @@
-/* Estilos para la clase aaa aplicada a app-cabecera */
-.aaa {
-  width: 100%;
-  background-color: #ffffff; /* Color de fondo */
-  color: #000000; /* Color de texto */
-  padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  height: 80px; /* Altura de la cabecera */
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.aaa .menu-logo-container img {
-  max-height: 60px;
-  width: auto;
-  object-fit: contain;
-}
-
-.aaa h1 {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-/* Ajuste para que el contenido respete la cabecera */
-ion-content {
-  --padding-top: 80px; /* Altura de la cabecera para el contenido */
-}
-
-ion-router-outlet {
-  margin-top: 80px; /* Mover contenido hacia abajo */
-  margin-left: 0;
-  margin-right: 0;
-
-}
-
-
-/* Ajustes en móviles */
-@media (max-width: 767px) {
-  ion-menu {
-    --width: 260px;
-    --min-width: 260px;
-    --max-width: 260px;
-  }
-
-  /* Asegurar que el menú se comporta como overlay en móviles */
-  ion-split-pane {
-    display: block;
-  }
-
-  ion-menu {
-    display: none;
-  }
-
-  ion-menu.show-menu {
-    display: block;
-    width: 260px;
-  }
-}
-
-/* Ajustar el contenido para que respete el ancho del menú */
-ion-router-outlet {
-  width: calc(100% - 200px); /* Respetar el ancho del menú */
-  transition: width 0.3s ease-in-out;
-
-}
-
-/* Para móviles */
-@media (max-width: 767px) {
-  ion-router-outlet {
-    width: 100%; /* Cuando el menú no está visible, ocupa todo el ancho */
-  }
-}
+///* Estilos para la clase aaa aplicada a app-cabecera */
+//.aaa {
+//  width: 100%;
+//  background-color: #ffffff; /* Color de fondo */
+//  color: #000000; /* Color de texto */
+//  padding: 0 20px;
+//  position: fixed;
+//  top: 0;
+//  left: 0;
+//  z-index: 9999;
+//  height: 80px; /* Altura de la cabecera */
+//  display: flex;
+//  align-items: center;
+//  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+//}
+//
+//.aaa .menu-logo-container img {
+//  max-height: 60px;
+//  width: auto;
+//  object-fit: contain;
+//}
+//
+//.aaa h1 {
+//  font-size: 1.2rem;
+//  margin: 0;
+//}
+//
+///* Ajuste para que el contenido respete la cabecera */
+//ion-content {
+//  //--padding-top: 80px; /* Altura de la cabecera para el contenido */
+//}
+//
+///* Asegura que el ion-router-outlet se ajuste debajo de la cabecera */
+//ion-router-outlet {
+//  margin-top: 80px; /* Mover contenido hacia abajo para que no quede debajo de la cabecera */
+//  margin-left: 0;
+//  margin-right: 0;
+//  width: 100%; /* Asegurar que ocupa todo el ancho */
+//}
+//
+///* Ajustes en móviles */
+//@media (max-width: 767px) {
+//  /* Definir el ancho del menú hamburguesa */
+//  ion-menu {
+//    --width: 260px;  /* Ancho del menú */
+//    --min-width: 260px;
+//    --max-width: 260px;
+//    position: fixed; /* Asegurarse de que esté fijo */
+//    top: 0;
+//    left: 0;
+//    z-index: 999;
+//  }
+//
+//  /* Hacer que el menú se oculte en dispositivos móviles por defecto */
+//  ion-menu {
+//    display: none;
+//  }
+//
+//  /* Mostrar el menú cuando esté activado */
+//  ion-menu.show-menu {
+//    display: block;
+//    width: 260px; /* Ancho fijo del menú */
+//    z-index: 999; /* Aseguramos que esté encima del contenido */
+//  }
+//
+//  /* Cuando el menú se muestre, el contenido se desplaza */
+//
+//  ion-router-outlet {
+//    transition: margin-left 0.3s ease-in-out; /* Añadimos transición para el desplazamiento */
+//    //width: calc(100% - 260px); /* El contenido se ajusta a la izquierda para mostrar el menú */
+//  }
+//}
+//
+///* Para dispositivos con pantalla más grande */
+//@media (min-width: 768px) {
+//  ion-menu {
+//    display: block; /* El menú está visible y fijo */
+//  }
+//
+//  ion-router-outlet {
+//    margin-left: 0; /* Sin márgenes a la izquierda en pantallas grandes */
+//    width: 100%; /* El outlet ocupa todo el ancho */
+//  }
+//}

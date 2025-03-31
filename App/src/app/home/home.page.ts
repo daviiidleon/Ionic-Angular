@@ -21,13 +21,14 @@ import {
   warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
 } from 'ionicons/icons';
 import {addIcons} from "ionicons";
+import {CabeceraComponent} from "../cabecera/cabecera.component";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonButtons, IonInput]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonButtons, IonInput, CabeceraComponent]
 })
 export class HomePage implements OnInit {
 

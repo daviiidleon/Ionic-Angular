@@ -1,23 +1,30 @@
+/* Aseguramos que ion-content ocupe toda la altura de la pantalla */
 ion-content {
   --background: transparent;
   display: block;
-  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  height: 100vh;  /* Esto asegura que ion-content ocupe toda la altura */
+  width: 100%;  /* Asegura que ocupe el 100% del ancho */
 }
 
+/* Wrapper ocupa toda la altura del viewport */
 .wrapper {
-  background-color: red;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
   background-image: url('../../assets/productMarket/decoracion.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover; /* La imagen cubre todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que se repita la imagen */
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 60px 0;
+  align-items: center;
+  flex-direction: column; /* Alineación vertical */
+  position: relative;
+  z-index: 0; /* Asegura que esté debajo del contenido */
 }
 
+/* El contenedor de la página */
 .container {
   display: flex;
   flex-direction: column;
@@ -25,16 +32,18 @@ ion-content {
   width: 90%;
   max-width: 400px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
   border-radius: 20px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 100px;
   transition: all 0.4s ease;
+  margin-top: 50px; /* Ajustar espacio superior */
+  z-index: 1; /* Asegura que el formulario esté por encima de la imagen */
 }
 
+/* Aseguramos que cuando se expanda, el contenedor tenga margen suficiente */
 .container.expanded {
-  margin-bottom: 150px; /* Espacio para que haya scroll cuando se expanda */
+  margin-bottom: 150px;
 }
 
 .logo {
@@ -89,5 +98,3 @@ ion-button {
   margin-top: 8px;
   font-size: 14px;
 }
-
-
