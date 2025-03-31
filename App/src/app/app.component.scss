@@ -32,14 +32,11 @@ ion-content {
 
 ion-router-outlet {
   margin-top: 80px; /* Mover contenido hacia abajo */
+  margin-left: 0;
+  margin-right: 0;
+
 }
 
-/* Estilos para el menú en pantallas grandes */
-ion-menu {
-  --width: 200px; /* Ancho en pantallas grandes */
-  --min-width: 200px;
-  --max-width: 280px;
-}
 
 /* Ajustes en móviles */
 @media (max-width: 767px) {
@@ -68,6 +65,7 @@ ion-menu {
 ion-router-outlet {
   width: calc(100% - 200px); /* Respetar el ancho del menú */
   transition: width 0.3s ease-in-out;
+
 }
 
 /* Para móviles */
