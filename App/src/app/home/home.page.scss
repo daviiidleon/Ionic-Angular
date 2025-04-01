@@ -1,126 +1,62 @@
-/* ion-content se ajusta para ocupar toda la pantalla */
+/* ion-content ocupa toda la pantalla */
 ion-content {
   --background: transparent;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   margin: 0;
-  height: 100vh;  /* Asegura que ion-content ocupe toda la altura */
-  width: 100%;  /* Asegura que ocupe el 100% del ancho */
+  height: 100vh;
+  width: 100vw;
 }
 
-/* Wrapper que contendrá las imágenes */
-/* Wrapper que contendrá las imágenes */
+/* Contenedor principal */
 .wrapper {
   width: 100%;
-  height: 50%; /* Hace que el contenedor ocupe el 50% de la altura de la pantalla */
+  height: 80vh; /* Se reduce la altura para que no pierda calidad */
   display: flex;
-  flex-direction: column; /* Alineación vertical de las imágenes */
   justify-content: center;
   align-items: center;
   position: relative;
-  gap: 20px; /* Espacio entre las imágenes */
+  flex-direction: column; /* Para que el texto y el botón estén alineados verticalmente */
 }
 
-/* Ajustes para la primera imagen con margen superior
-.decoracion {
-  width: 90%;  /* El ancho es del 90% del ancho de la pantalla
-  height: 100%; /* La altura ocupa el 100% de la altura del wrapper
-  /*object-fit: cover; /* Asegura que la imagen se cubra completamente sin perder calidad
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad
-  margin-top: 30%; /* Puedes ajustar esto si deseas más espacio arriba
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-} */
-
-/* Ajustes para la segunda imagen (tendencias) */
+/* Imagen ocupa todo el ancho, pero con menos altura */
 .tendencias {
-  width: 70%;  /* El ancho es del 90% del ancho de la pantalla */
-  height: 140%; /* La altura ocupa el 100% de la altura del wrapper */
-  object-fit: cover; /* Asegura que la imagen se cubra completamente sin perder calidad */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  margin-top: 15%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 80vh; /* Se reduce la altura */
+  object-fit: cover; /* Evita distorsiones y mantiene calidad */
+  position: absolute;
+  z-index: 1;
 }
 
-
-
-/* Efecto hover para las imágenes */
-.decoracion:hover,
-.tendencias:hover {
-  transform: scale(1.05); /* Ligeramente más grande al hacer hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Más sombra al hacer hover */
-}
-
-/* El contenedor de la página */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  max-width: 400px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
-  border-radius: 20px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+/* Texto sobre la imagen */
+.texto-bienvenida {
+  position: absolute;
+  z-index: 2;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
   text-align: center;
-  transition: all 0.4s ease;
-  margin-top: 50px; /* Ajustar espacio superior */
-  z-index: 1; /* Asegura que el formulario esté por encima de la imagen */
+  padding: 20px;
 }
 
-/* Aseguramos que cuando se expanda, el contenedor tenga margen suficiente */
-.container.expanded {
-  margin-bottom: 150px;
+/* Estilo para el botón */
+.productos-btn {
+  position: absolute;
+  z-index: 3;
+  margin-top: 180px; /* Añadir espacio entre el texto y el botón */
+  font-size: 20px;
+  color: white;
+  border-radius: 25px; /* Bordes redondeados */
+  padding: 12px 40px; /* Tamaño y espaciado del botón */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.logo {
-  width: 250px;
-  height: auto;
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #333;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-h3 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-ion-input {
-  width: 100%;
-  height: 50px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --border-radius: 10px;
-  --background: #f7f7f7;
-  --box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-ion-button {
-  width: 100%;
-  height: 20px;
-  font-size: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.links {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.links a {
-  color: #007bff;
-  text-decoration: none;
-  margin-top: 8px;
-  font-size: 14px;
+/* Efecto hover para el botón */
+.productos-btn:hover {
+  transform: scale(1.05); /* Hace el botón un poco más grande */
 }

@@ -32,6 +32,7 @@ import {
 } from 'ionicons/icons';
 import {addIcons} from "ionicons";
 import {CabeceraComponent} from "../cabecera/cabecera.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -56,9 +57,13 @@ export class HomePage implements OnInit {
   showRegisterForm = false;
   showForgotPasswordForm = false;
 
-  constructor() {
+  constructor(private router: Router) {
     addIcons({ cartSharp, shirtSharp ,logInSharp,homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
 
+  }
+
+  goToProducts() {
+    this.router.navigate(['/productos']); // Aquí '/productos' es la ruta de la página de productos
   }
 
   ngOnInit() {}
