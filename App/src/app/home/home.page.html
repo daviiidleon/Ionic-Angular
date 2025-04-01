@@ -11,7 +11,19 @@
     <div class="texto-bienvenida">Bienvenido a Product Market DL</div>
 
     <!-- Botón que redirige a la página de productos -->
-    <ion-button class="productos-btn" (click)="goToProducts()">Ver Productos</ion-button>
+    <ion-button class="productos-btn principal-btn" (click)="goToProducts()">Ver Productos</ion-button>
+  </div>
+
+  <!-- Contenedor para las imágenes a y b en la misma fila -->
+  <div class="imagenes-container">
+    <div class="imagen-wrapper">
+      <img class="imagen" src="../../assets/productMarket/a.jpg">
+      <ion-button class="productos-btn">Hombre</ion-button>
+    </div>
+    <div class="imagen-wrapper">
+      <img class="imagen" src="../../assets/productMarket/b.jpg">
+      <ion-button class="productos-btn">Mujer</ion-button>
+    </div>
   </div>
 </ion-content>
 

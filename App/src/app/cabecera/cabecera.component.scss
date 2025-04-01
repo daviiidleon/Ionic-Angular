@@ -99,14 +99,20 @@ ion-button {
 .menu-logo-container {
   display: flex;
   align-items: center;
-  height: 100%;
+  justify-content: center;  /* Asegura que la imagen se centre */
+  width: 100%;
+  height: auto;  /* No pongas una altura fija si quieres que crezca con el logo */
 }
 
+
 .menu-logo-container img {
-  max-height: 120px;
+  height: 150px; /* O el tamaño que prefieras */
   width: auto;
   object-fit: contain;
 }
+
+
+
 
 /* Efecto hover para los iconos */
 .header-right ion-icon {
