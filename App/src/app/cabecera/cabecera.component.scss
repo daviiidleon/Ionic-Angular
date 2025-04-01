@@ -1,10 +1,10 @@
+/* Estilos para los iconos en la cabecera */
 .header-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 72%;
+  margin-left: 79%; /* Mover los iconos hacia la derecha */
   gap: 25px; /* Espacio entre los iconos */
-
 }
 
 /* Contenedor del icono y formulario */
@@ -118,6 +118,17 @@ ion-button {
   max-height: 120px;
   width: auto;
   object-fit: contain;
+}
+
+/* Efecto hover para los iconos */
+.header-right ion-icon {
+  transition: transform 0.3s ease, color 0.3s ease; /* Animación suave */
+  color: #333; /* Color por defecto */
+}
+
+.header-right ion-icon:hover {
+  color: #007bff; /* Color azul claro al hacer hover */
+  transform: scale(1.1); /* Aumento ligero del tamaño */
 }
 
 /* Asegurar que el contenido empiece después del header */
