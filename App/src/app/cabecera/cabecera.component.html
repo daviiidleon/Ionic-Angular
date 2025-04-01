@@ -8,9 +8,12 @@
   </div>
 
   <div class="header-right">
-    <div class="user-icon-container" (mouseenter)="showForm()" (mouseleave)="hideForm()">
+    <!-- Contenedor envolvente para el icono y el formulario -->
+    <div class="user-icon-wrapper" (mouseover)="showForm()" (mouseleave)="hideForm()">
       <ion-icon name="person-sharp" size="large"></ion-icon>
-      <div class="form-wrapper" *ngIf="showLoginForm">
+
+      <!-- El formulario que se mostrará cuando se pase el ratón por encima -->
+      <div class="form-wrapper" *ngIf="showLoginForm" (mouseenter)="showForm()" (mouseleave)="hideForm()">
         <div class="form-container">
           <div *ngIf="showLoginForm">
             <ion-button expand="full" color="primary" (click)="login()">Iniciar Sesión</ion-button>

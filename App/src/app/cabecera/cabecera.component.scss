@@ -1,28 +1,26 @@
+/* Contenedor que envuelve el icono y el formulario */
+.user-icon-wrapper {
+  position: relative;
+  display: inline-block; /* Asegura que el contenedor sea lo suficientemente pequeño */
+}
+
 /* Estilos para los iconos en la cabecera */
 .header-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 79%; /* Mover los iconos hacia la derecha */
-  gap: 25px; /* Espacio entre los iconos */
+  margin-left: 79%;  /* Mover los iconos hacia la derecha */
+  gap: 25px;
 }
 
 /* Contenedor del icono y formulario */
-.user-icon-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-/* Formulario oculto por defecto */
 .form-wrapper {
   position: absolute;
-  top: 50px; /* Ajustar para que aparezca debajo del icono */
+  top: 20px;  /* Ajustar la posición para que esté más cerca del icono */
   left: 50%;
   transform: translateX(-50%);
   width: 250px;
-  display: none; /* Oculto inicialmente */
+  display: none;  /* Ocultar por defecto */
   justify-content: center;
   align-items: flex-start;
   background: rgba(255, 255, 255, 0.95);
@@ -31,27 +29,17 @@
   text-align: center;
   padding: 15px;
   z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Cuando el usuario pase el mouse sobre el icono, mostrar el formulario */
-.user-icon-container:hover .form-wrapper {
-  display: flex;
+/* Mostrar el formulario solo cuando se pase el ratón por encima del contenedor */
+.user-icon-wrapper:hover .form-wrapper,
+.form-wrapper:hover {
+  display: flex;  /* Mostrar el formulario cuando el ratón está sobre él */
+  opacity: 1;
 }
 
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 250px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-/* Estilos de los botones e inputs */
+/* Ajustar los botones e inputs */
 ion-input {
   width: 100%;
   height: 50px;

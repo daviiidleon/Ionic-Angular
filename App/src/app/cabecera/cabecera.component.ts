@@ -11,15 +11,14 @@ import {
 } from "@ionic/angular/standalone";
 import { addIcons } from "ionicons";
 import {
-  archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp,
-  cartSharp, heartOutline, heartSharp,
-  homeSharp, logInSharp, mailOutline, mailSharp,
-  paperPlaneOutline, paperPlaneSharp, shirtSharp,
+  cartSharp, shirtSharp, logInSharp, homeSharp,
+  mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+  heartOutline, heartSharp, archiveOutline, archiveSharp,
   trashOutline, trashSharp, warningOutline, warningSharp,
-  personSharp
+  bookmarkOutline, bookmarkSharp, personSharp
 } from "ionicons/icons";
 import { FormsModule } from "@angular/forms";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-cabecera',
@@ -52,25 +51,22 @@ export class CabeceraComponent {
       trashOutline, trashSharp, warningOutline, warningSharp,
       bookmarkOutline, bookmarkSharp, personSharp
     });
-
   }
 
   goToHome() {
-    this.router.navigate(['/']); // Redirige a la página principal (home)
+    this.router.navigate(['/']);
   }
 
   ngOnInit() {}
 
-  showAnyForm() {
-    return this.showLoginForm || this.showRegisterForm || this.showForgotPasswordForm;
+  // Método para mostrar el formulario
+  showForm() {
+    this.showLoginForm = true;
   }
 
-  toggleForm() {
-    if (this.showAnyForm()) {
-      this.closeAllForms();
-    } else {
-      this.showLoginForm = true;
-    }
+  // Método para ocultar el formulario
+  hideForm() {
+    this.showLoginForm = false;
   }
 
   openRegister(event: Event) {
@@ -105,13 +101,5 @@ export class CabeceraComponent {
     } else {
       alert('Por favor, ingresa ambos campos');
     }
-  }
-
-  showForm() {
-    this.showLoginForm = true;
-  }
-
-  hideForm() {
-    this.showLoginForm = false;
   }
 }
