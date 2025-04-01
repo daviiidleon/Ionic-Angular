@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {IonButton, IonButtons, IonHeader, IonIcon, IonInput, IonMenuButton} from "@ionic/angular/standalone";
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonInput,
+  IonMenuButton
+} from "@ionic/angular/standalone";
 import {addIcons} from "ionicons";
 import {
   archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp,
@@ -20,7 +28,7 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './cabecera.component.html',
   styleUrls: ['./cabecera.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonMenuButton, IonHeader, IonButton, IonButtons, IonInput, FormsModule, IonIcon],
+  imports: [CommonModule, IonMenuButton, IonHeader, IonButton, IonButtons, IonInput, FormsModule, IonIcon, IonContent],
 })
 export class CabeceraComponent {
 

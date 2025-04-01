@@ -7,7 +7,6 @@
     </div>
   </div>
 
-  <!-- Aquí va el botón de "Iniciar Sesión" y el ícono del carrito alineados a la derecha -->
   <div class="header-right">
     <ion-buttons slot="end">
       <ion-button (click)="toggleForm()">
@@ -16,10 +15,19 @@
     </ion-buttons>
     <ion-icon name="cart-sharp" slot="end" size="large"></ion-icon>
   </div>
+
+  <div class="form-wrapper" *ngIf="showAnyForm()">
+    <div class="form-container">
+
+      <div *ngIf="showLoginForm">
+        <ion-button expand="full" color="primary" (click)="login()">Iniciar Sesión</ion-button>
+        <div class="links">
+          <a href="#" (click)="openForgotPassword($event)">¿Nuevo cliente? Regístrate ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-header>
-
-
-
 
 <!--
   <div class="container">
