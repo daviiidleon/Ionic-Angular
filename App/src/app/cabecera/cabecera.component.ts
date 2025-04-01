@@ -101,11 +101,5 @@ export class CabeceraComponent {
     }
   }
 
-  showForm() {
-    this.showLoginForm = true;
-  }
 
-  hideForm() {
-    this.showLoginForm = false;
-  }
 }
