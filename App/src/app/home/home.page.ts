@@ -1,7 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonButton, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonIcon, IonButtons } from '@ionic/angular/standalone';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonInput,
+  IonIcon,
+  IonButtons,
+  IonImg
+} from '@ionic/angular/standalone';
 import {
   search,
   cartSharp,
@@ -28,7 +38,7 @@ import {CabeceraComponent} from "../cabecera/cabecera.component";
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonButtons, IonInput, CabeceraComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonButtons, IonInput, CabeceraComponent, IonImg]
 })
 export class HomePage implements OnInit {
 

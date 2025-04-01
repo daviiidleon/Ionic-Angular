@@ -1,27 +1,53 @@
-/* Aseguramos que ion-content ocupe toda la altura de la pantalla */
+/* ion-content se ajusta para ocupar toda la pantalla */
 ion-content {
   --background: transparent;
   display: block;
   padding: 0;
   margin: 0;
-  height: 100vh;  /* Esto asegura que ion-content ocupe toda la altura */
+  height: 100vh;  /* Asegura que ion-content ocupe toda la altura */
   width: 100%;  /* Asegura que ocupe el 100% del ancho */
 }
 
-/* Wrapper ocupa toda la altura del viewport */
+/* Wrapper que contendrá las imágenes */
+/* Wrapper que contendrá las imágenes */
 .wrapper {
   width: 100%;
-  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
-  background-image: url('../../assets/productMarket/decoracion.jpg');
-  background-size: cover; /* La imagen cubre todo el fondo */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que se repita la imagen */
+  height: 50%; /* Hace que el contenedor ocupe el 50% de la altura de la pantalla */
   display: flex;
+  flex-direction: column; /* Alineación vertical de las imágenes */
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* Alineación vertical */
   position: relative;
-  z-index: 0; /* Asegura que esté debajo del contenido */
+  gap: 20px; /* Espacio entre las imágenes */
+}
+
+/* Ajustes para la primera imagen con margen superior
+.decoracion {
+  width: 90%;  /* El ancho es del 90% del ancho de la pantalla
+  height: 100%; /* La altura ocupa el 100% de la altura del wrapper
+  /*object-fit: cover; /* Asegura que la imagen se cubra completamente sin perder calidad
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad
+  margin-top: 30%; /* Puedes ajustar esto si deseas más espacio arriba
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+} */
+
+/* Ajustes para la segunda imagen (tendencias) */
+.tendencias {
+  width: 70%;  /* El ancho es del 90% del ancho de la pantalla */
+  height: 140%; /* La altura ocupa el 100% de la altura del wrapper */
+  object-fit: cover; /* Asegura que la imagen se cubra completamente sin perder calidad */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  margin-top: 15%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* Efecto hover para las imágenes */
+.decoracion:hover,
+.tendencias:hover {
+  transform: scale(1.05); /* Ligeramente más grande al hacer hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Más sombra al hacer hover */
 }
 
 /* El contenedor de la página */
