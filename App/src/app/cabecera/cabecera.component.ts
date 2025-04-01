@@ -19,6 +19,7 @@ import {
   personSharp
 } from "ionicons/icons";
 import { FormsModule } from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cabecera',
@@ -43,7 +44,7 @@ export class CabeceraComponent {
   showRegisterForm = false;
   showForgotPasswordForm = false;
 
-  constructor() {
+  constructor(private router: Router) {
     addIcons({
       cartSharp, shirtSharp, logInSharp, homeSharp,
       mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
@@ -51,6 +52,11 @@ export class CabeceraComponent {
       trashOutline, trashSharp, warningOutline, warningSharp,
       bookmarkOutline, bookmarkSharp, personSharp
     });
+
+  }
+
+  goToHome() {
+    this.router.navigate(['/']); // Redirige a la página principal (home)
   }
 
   ngOnInit() {}
@@ -101,5 +107,11 @@ export class CabeceraComponent {
     }
   }
 
+  showForm() {
+    this.showLoginForm = true;
+  }
 
+  hideForm() {
+    this.showLoginForm = false;
+  }
 }

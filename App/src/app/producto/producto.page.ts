@@ -13,8 +13,9 @@ import {
   IonSpinner,
   IonTitle,
   IonToolbar,
-  IonButton
+  IonButton, IonIcon
 } from "@ionic/angular/standalone";
+import {CabeceraComponent} from "../cabecera/cabecera.component";
 
 @Component({
   selector: 'app-producto',
@@ -33,7 +34,9 @@ import {
     IonCardTitle,
     IonCardContent,
     IonSpinner,
-    IonButton
+    IonButton,
+    CabeceraComponent,
+    IonIcon
   ]
 })
 export class ProductoPage implements OnInit {

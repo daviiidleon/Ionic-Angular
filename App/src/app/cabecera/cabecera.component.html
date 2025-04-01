@@ -2,7 +2,7 @@
   <div class="cabecera-content">
     <ion-menu-button autoHide="false" menu="main-menu"></ion-menu-button>
 
-    <div class="menu-logo-container">
+    <div class="menu-logo-container" (click)="goToHome()">
       <img src="../assets/productMarket/logoRopaD.png" alt="logo">
     </div>
   </div>
@@ -22,6 +22,7 @@
       </div>
     </div>
 
+    <ion-icon name="heart-sharp" slot="" size="large"></ion-icon>
     <ion-icon name="cart-sharp" slot="end" size="large"></ion-icon>
   </div>
 </ion-header>
