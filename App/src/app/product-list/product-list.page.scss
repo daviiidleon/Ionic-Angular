@@ -3,6 +3,10 @@ ion-toolbar {
   --background: #ffffff; /* Fondo blanco */
   --color: #333; /* Color del texto */
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 60%; /* Ocupa el 40% del ancho disponible */
+  margin-left: 20%;
 }
 
 /* Contenedor en cuadrícula */
@@ -80,7 +84,8 @@ ion-searchbar {
   --color: #333;
   border-radius: 8px;
   border: none;
-  width: 100%; /* Ocupa todo el ancho disponible */
+  width: 100%; /* Ocupa el 40% del ancho disponible */
+
 }
 
 /* Ajustes para pantallas más pequeñas */

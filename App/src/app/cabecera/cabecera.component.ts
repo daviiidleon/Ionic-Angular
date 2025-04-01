@@ -9,19 +9,16 @@ import {
   IonInput,
   IonMenuButton
 } from "@ionic/angular/standalone";
-import {addIcons} from "ionicons";
+import { addIcons } from "ionicons";
 import {
   archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp,
   cartSharp, heartOutline, heartSharp,
-  homeSharp,
-  logInSharp,
-  mailOutline,
-  mailSharp,
-  paperPlaneOutline,
-  paperPlaneSharp,
-  shirtSharp, trashOutline, trashSharp, warningOutline, warningSharp
+  homeSharp, logInSharp, mailOutline, mailSharp,
+  paperPlaneOutline, paperPlaneSharp, shirtSharp,
+  trashOutline, trashSharp, warningOutline, warningSharp,
+  personSharp
 } from "ionicons/icons";
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-cabecera',
@@ -47,8 +44,13 @@ export class CabeceraComponent {
   showForgotPasswordForm = false;
 
   constructor() {
-    addIcons({ cartSharp, shirtSharp ,logInSharp,homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
-
+    addIcons({
+      cartSharp, shirtSharp, logInSharp, homeSharp,
+      mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+      heartOutline, heartSharp, archiveOutline, archiveSharp,
+      trashOutline, trashSharp, warningOutline, warningSharp,
+      bookmarkOutline, bookmarkSharp, personSharp
+    });
   }
 
   ngOnInit() {}
@@ -99,26 +101,11 @@ export class CabeceraComponent {
     }
   }
 
-  register() {
-    if (this.registerName && this.registerEmail && this.registerPassword && this.registerPasswordConfirm) {
-      if (this.registerPassword !== this.registerPasswordConfirm) {
-        alert('Las contraseñas no coinciden');
-        return;
-      }
-      alert('Registro exitoso');
-      this.closeAllForms();
-    } else {
-      alert('Por favor, completa todos los campos');
-    }
+  showForm() {
+    this.showLoginForm = true;
   }
 
-  recoverPassword() {
-    if (this.forgotEmail) {
-      alert(`Se ha enviado un correo de recuperación a: ${this.forgotEmail}`);
-      this.closeAllForms();
-    } else {
-      alert('Por favor, ingresa tu correo');
-    }
+  hideForm() {
+    this.showLoginForm = false;
   }
 }
-
