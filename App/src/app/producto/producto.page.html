@@ -3,40 +3,45 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Spinner -->
+  <!-- Spinner de carga -->
   <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
   <!-- Producto -->
-  <ion-card *ngIf="!isLoading && product">
-    <ion-card-header>
-      <ion-card-title>{{ product.name }}</ion-card-title>
-    </ion-card-header>
+  <ion-card *ngIf="!isLoading && product" class="product-container">
+    <!-- Contenedor de Imagen e Información -->
+    <div class="product-details">
+      <!-- Imagen del producto -->
+      <div class="product-image">
+        <img [src]="product.image" alt="{{ product.name }}" />
+      </div>
 
-    <ion-card-content>
-      <img [src]="product.image" alt="{{ product.name }}" />
-      <p>{{ product.description }}</p>
-      <p><strong>Precio:</strong> {{ product.price | currency }}</p>
-      <p><strong>Categoría:</strong> {{ product.category }}</p>
+      <!-- Información del producto -->
+      <div class="product-info">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-price">{{ product.price | currency }}</p>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-description">{{ product.description }}</p>
 
-      <!-- Selección de Tallas -->
-      <div class="size-selection">
-        <p><strong>Selecciona una talla:</strong></p>
-        <div class="sizes">
-          <div *ngFor="let size of product.sizes"
-               [class.selected]="selectedSize === size"
-               (click)="selectSize(size)">
-            {{ size }}
+        <!-- Selección de Tallas -->
+        <div class="size-selection">
+          <p><strong>Tallas disponibles:</strong></p>
+          <div class="sizes">
+            <div *ngFor="let size of product.sizes"
+                 [class.selected]="selectedSize === size"
+                 (click)="selectSize(size)">
+              {{ size }}
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Botón de añadir a la cesta -->
-      <div class="add-to-cart-container">
-        <ion-button  color="color" [disabled]="!selectedSize">
-          Añadir a la cesta
-        </ion-button>
+        <!-- Botón de añadir a la cesta -->
+        <div class="add-to-cart-container">
+          <ion-button expand="full" [disabled]="!selectedSize">
+            Añadir a la cesta
+          </ion-button>
+        </div>
       </div>
-    </ion-card-content>
+    </div>
   </ion-card>
 
   <!-- Producto no encontrado -->
@@ -44,7 +49,5 @@
     <p>Producto no encontrado.</p>
   </div>
 
-  <!-- Footer solo se mostrará al final de la página -->
   <app-footer></app-footer>
-
 </ion-content>
