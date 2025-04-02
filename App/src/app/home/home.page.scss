@@ -44,6 +44,7 @@ ion-content {
 
 /* Estilo para el botón principal */
 .principal-btn {
+  --background: var(--ion-color-dark);
   position: absolute;
   z-index: 3;
   margin-top: 180px; /* Añadir espacio entre el texto y el botón */
@@ -51,9 +52,9 @@ ion-content {
 
 /* Estilo para los botones */
 .productos-btn {
+  --background: var(--ion-color-dark);
   font-size: 20px;
   color: white;
-  border-radius: 25px; /* Bordes redondeados */
   padding: 12px 40px; /* Tamaño y espaciado del botón */
   text-transform: uppercase;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -109,5 +110,3 @@ ion-content {
   display: block;
   margin: 0;
 }
-
-
