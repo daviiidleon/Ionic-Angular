@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <!-- Tabs de Login y Registro -->
+    <ion-segment [(ngModel)]="segmentValue">
+      <ion-segment-button value="login">
+        <ion-label>Iniciar sesión</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="register">
+        <ion-label>Crear cuenta</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <!-- Formulario de Inicio de Sesión -->
+    <div *ngIf="segmentValue === 'login'" class="form-container">
+      <ion-input label="Correo electrónico" type="email" [(ngModel)]="login.email"></ion-input>
+      <ion-input label="Contraseña" type="password" [(ngModel)]="login.password"></ion-input>
+      <ion-button expand="full" (click)="loginUser()">Entrar</ion-button>
+      <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <!-- Formulario de Registro -->
+    <div *ngIf="segmentValue === 'register'" class="form-container">
+      <ion-input label="Nombre" type="text" [(ngModel)]="register.name"></ion-input>
+      <ion-input label="Correo electrónico" type="email" [(ngModel)]="register.email"></ion-input>
+      <ion-input label="Contraseña" type="password" [(ngModel)]="register.password"></ion-input>
+      <ion-input label="Confirmar contraseña" type="password" [(ngModel)]="register.confirmPassword"></ion-input>
+      <ion-button expand="full" (click)="registerUser()">Registrarse</ion-button>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+
+</ion-content>

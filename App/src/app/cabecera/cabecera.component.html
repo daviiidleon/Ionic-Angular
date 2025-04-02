@@ -12,13 +12,13 @@
     <div class="user-icon-wrapper" (mouseover)="showForm()" (mouseleave)="hideForm()">
       <ion-icon name="person-sharp" size="large"></ion-icon>
 
-      <!-- El formulario que se mostrará cuando se pase el ratón por encima -->
+      <!-- Formulario que aparece al pasar el ratón -->
       <div class="form-wrapper" *ngIf="showLoginForm" (mouseenter)="showForm()" (mouseleave)="hideForm()">
         <div class="form-container">
           <div *ngIf="showLoginForm">
-            <ion-button expand="full" color="primary" (click)="login()">Iniciar Sesión</ion-button>
+            <ion-button expand="full" color="a" (click)="goToLogin()">Iniciar Sesión</ion-button>
             <div class="links">
-              <a href="#" (click)="openForgotPassword($event)">¿Nuevo cliente? Regístrate ahora</a>
+              <a href="#" (click)="goToLogin(true)">¿Nuevo cliente? Regístrate ahora</a>
             </div>
           </div>
         </div>

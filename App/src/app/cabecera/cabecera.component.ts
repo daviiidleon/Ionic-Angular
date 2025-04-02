@@ -1,24 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonInput,
-  IonMenuButton
+  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonInput, IonMenuButton
 } from "@ionic/angular/standalone";
 import { addIcons } from "ionicons";
 import {
-  cartSharp, shirtSharp, logInSharp, homeSharp,
-  mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
-  heartOutline, heartSharp, archiveOutline, archiveSharp,
-  trashOutline, trashSharp, warningOutline, warningSharp,
-  bookmarkOutline, bookmarkSharp, personSharp
+  cartSharp, shirtSharp, logInSharp, homeSharp, heartSharp, personSharp
 } from "ionicons/icons";
 import { FormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-cabecera',
@@ -28,78 +18,28 @@ import { Router } from "@angular/router";
   imports: [CommonModule, IonMenuButton, IonHeader, IonButton, IonButtons, IonInput, FormsModule, IonIcon, IonContent],
 })
 export class CabeceraComponent {
-
-  email: string = '';
-  password: string = '';
-  registerName: string = '';
-  registerEmail: string = '';
-  registerPassword: string = '';
-  registerPasswordConfirm: string = '';
-  forgotEmail: string = '';
-
-  token = 'vvg7576g';
-
   showLoginForm = false;
-  showRegisterForm = false;
-  showForgotPasswordForm = false;
 
   constructor(private router: Router) {
-    addIcons({
-      cartSharp, shirtSharp, logInSharp, homeSharp,
-      mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
-      heartOutline, heartSharp, archiveOutline, archiveSharp,
-      trashOutline, trashSharp, warningOutline, warningSharp,
-      bookmarkOutline, bookmarkSharp, personSharp
-    });
+    addIcons({ cartSharp, shirtSharp, logInSharp, homeSharp, heartSharp, personSharp });
   }
 
   goToHome() {
     this.router.navigate(['/']);
   }
 
-  ngOnInit() {}
-
-  // Método para mostrar el formulario
+  // Método para mostrar el formulario al pasar el ratón
   showForm() {
     this.showLoginForm = true;
   }
 
-  // Método para ocultar el formulario
+  // Método para ocultarlo cuando se retira el cursor
   hideForm() {
     this.showLoginForm = false;
   }
 
-  openRegister(event: Event) {
-    event.preventDefault();
-    this.closeAllForms();
-    this.showRegisterForm = true;
-  }
-
-  openLogin(event: Event) {
-    event.preventDefault();
-    this.closeAllForms();
-    this.showLoginForm = true;
-  }
-
-  openForgotPassword(event: Event) {
-    event.preventDefault();
-    this.closeAllForms();
-    this.showForgotPasswordForm = true;
-  }
-
-  closeAllForms() {
-    this.showLoginForm = false;
-    this.showRegisterForm = false;
-    this.showForgotPasswordForm = false;
-  }
-
-  login() {
-    if (this.email && this.password) {
-      localStorage.setItem('token', this.token);
-      alert('Inicio de sesión exitoso');
-      this.closeAllForms();
-    } else {
-      alert('Por favor, ingresa ambos campos');
-    }
+  // Redirige a Login con opción para mostrar registro
+  goToLogin(showRegister: boolean = false) {
+    this.router.navigate(['/login'], { queryParams: { register: showRegister ? 'true' : 'false' } });
   }
 }

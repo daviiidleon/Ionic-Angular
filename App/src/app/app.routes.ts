@@ -17,5 +17,9 @@ export const routes: Routes = [
   {
     path: 'producto/:id',
     loadComponent: () => import('./producto/producto.page').then( m => m.ProductoPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
   }
 ];

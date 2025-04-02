@@ -58,6 +58,7 @@ ion-button {
   font-size: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
+  background-color: black;
 }
 
 .links {
@@ -67,7 +68,7 @@ ion-button {
 }
 
 .links a {
-  color: #007bff;
+  color: black;
   text-decoration: none;
   margin-top: 8px;
   font-size: 14px;
@@ -121,7 +122,7 @@ ion-button {
 }
 
 .header-right ion-icon:hover {
-  color: #007bff; /* Color azul claro al hacer hover */
+  color: black; /* Color azul claro al hacer hover */
   transform: scale(1.1); /* Aumento ligero del tamaño */
 }
 

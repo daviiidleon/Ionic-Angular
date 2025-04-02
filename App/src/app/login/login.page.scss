@@ -1,0 +1,111 @@
+/* Contenedor principal */
+.container {
+  margin-top: 5%;  /* Reduce el margen superior */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  flex-grow: 1;  /* Permite que el contenido crezca y ocupe espacio */
+}
+
+/* Formulario en general */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  margin-bottom: 0px; /* Eliminamos casi todo el margen inferior */
+}
+
+/* Ajuste de los inputs */
+ion-input {
+  --background: #f8f8f8;
+  --color: #333;
+  --placeholder-color: #777;
+  --padding-start: 18px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* Botón de acción */
+ion-button {
+  --background: #000;  /* Asegura que el fondo sea completamente negro */
+  --color: white;      /* El color del texto es blanco */
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  height: 55px;
+  transition: 0.3s;
+}
+
+ion-button:hover {
+  filter: brightness(0.85);  /* Ajuste de brillo en el hover */
+}
+
+/* Enlace de olvido de contraseña */
+.forgot-password {
+  color: #000;  /* Color negro para el texto */
+  text-decoration: none;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  margin-top: 12px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Fijar el footer en la parte inferior */
+app-footer {
+  margin-top: auto;  /* Esto asegura que el footer se mueva hacia abajo automáticamente */
+  width: 100%;
+  padding: 10px 0; /* Reduce aún más el padding del footer */
+  position: absolute;
+  bottom: 0; /* Asegura que el footer esté en la parte inferior */
+  left: 0;
+  z-index: 1;
+}
+
+/* Asegurarse de que el contenido no se solape con el footer */
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 0px; /* Se elimina el padding para reducir el espacio */
+  flex-grow: 1; /* Deja que el contenido crezca y se ajuste automáticamente */
+}
+
+/* Estilo para eliminar el color azul de los botones de los segmentos */
+ion-segment {
+  --indicator-color: transparent !important;  /* Elimina el indicador azul de selección */
+  --background: transparent !important; /* Fondo transparente en segment */
+  --color: #000 !important; /* Color del texto a negro */
+
+}
+
+ion-segment-button {
+  --color: #000 !important;  /* Cambiar color del texto a negro */
+  --background: transparent !important;  /* Fondo transparente */
+  --border-color: transparent !important; /* Eliminar el borde */
+  --color-checked: var(--ion-color-dark);
+}
+
+ion-segment-button.activated {
+  --color: #000 !important;  /* Color negro cuando está activado */
+  --background: transparent !important;  /* Fondo transparente cuando está activado */
+}
+
+/* Eliminar efecto hover del botón de segmento */
+ion-segment-button:hover {
+  --background: transparent !important;  /* Asegura que no haya fondo en el hover */
+  --color: #000 !important;  /* Color del texto cuando está en hover */
+}
+
+ion-label {
+  color: black;
+}
