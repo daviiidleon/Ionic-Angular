@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {IonIcon} from "@ionic/angular/standalone";
+import {addIcons} from "ionicons";
+import {
+  archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp,
+  cartSharp, heartOutline, heartSharp,
+  homeSharp,
+  logInSharp, logoFacebook, logoInstagram, logoTwitter, logoYoutube,
+  mailOutline,
+  mailSharp,
+  paperPlaneOutline,
+  paperPlaneSharp, personSharp,
+  shirtSharp, trashOutline, trashSharp, warningOutline, warningSharp
+} from "ionicons/icons";
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +23,11 @@ import {IonIcon} from "@ionic/angular/standalone";
 })
 export class FooterComponent  implements OnInit {
 
-  constructor() { }
+  constructor() {
+    addIcons({
+      logoYoutube, logoTwitter, logoFacebook, logoInstagram
+    });
+  }
 
   ngOnInit() {}
 

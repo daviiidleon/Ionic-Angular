@@ -1,9 +1,24 @@
 .footer {
+  position: relative; /* Permite que el footer se sitúe después del contenido */
+  width: 100%;
+  height: 35%;
+  background-color: white;
   color: black;
-  padding: 30px 20px;
+  padding: 50px;
   text-align: center;
   font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
 }
+
+
+/* Asegurar que el contenido tenga suficiente altura */
+.main-content {
+  min-height: 100vh; /* Ocupa al menos el alto de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Deja el footer al final */
+}
+
 
 .footer-container {
   display: flex;
