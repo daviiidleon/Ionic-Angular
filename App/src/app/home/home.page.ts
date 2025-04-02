@@ -33,13 +33,14 @@ import {
 import {addIcons} from "ionicons";
 import {CabeceraComponent} from "../cabecera/cabecera.component";
 import {Router} from "@angular/router";
+import {FooterComponent} from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonButtons, IonInput, CabeceraComponent, IonImg]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonButtons, IonInput, CabeceraComponent, IonImg, FooterComponent]
 })
 export class HomePage implements OnInit {
 
