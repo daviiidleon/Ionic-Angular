@@ -13,7 +13,7 @@ import {
   IonSpinner,
   IonTitle,
   IonToolbar,
-  IonButton, IonIcon
+  IonButton, IonIcon, IonImg
 } from "@ionic/angular/standalone";
 import {CabeceraComponent} from "../cabecera/cabecera.component";
 import {FooterComponent} from "../footer/footer.component";
@@ -38,7 +38,8 @@ import {FooterComponent} from "../footer/footer.component";
     IonButton,
     CabeceraComponent,
     IonIcon,
-    FooterComponent
+    FooterComponent,
+    IonImg
   ]
 })
 export class ProductoPage implements OnInit {

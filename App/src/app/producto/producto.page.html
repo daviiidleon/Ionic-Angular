@@ -12,7 +12,8 @@
     <div class="product-details">
       <!-- Imagen del producto -->
       <div class="product-image">
-        <img [src]="product.image" alt="{{ product.name }}" />
+        <ion-img [src]="product.image" alt="{{ product.name }}" ></ion-img>
+        <!--<img [src]="product.image" alt="{{ product.name }}" />-->
       </div>
 
       <!-- Información del producto -->
@@ -36,7 +37,7 @@
 
         <!-- Botón de añadir a la cesta -->
         <div class="add-to-cart-container">
-          <ion-button expand="full" [disabled]="!selectedSize">
+          <ion-button expand="full" [disabled]="!selectedSize" class="ion-no-margin">
             Añadir a la cesta
           </ion-button>
         </div>
