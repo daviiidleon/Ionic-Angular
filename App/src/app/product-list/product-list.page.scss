@@ -13,10 +13,11 @@ ion-toolbar {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /* Aumenta el tamaño mínimo de los cards */
-  gap: 30px; /* Espaciado entre los productos */
+  gap: 35px; /* Espaciado entre los productos */
   padding: 10px;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 400px;
 }
 
 /* Cards de producto */
@@ -145,12 +146,6 @@ ion-list-header {
   border: none;
 }
 
-/* Contenido principal */
-ion-content {
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: none;
-}
 
 ion-icon {
   margin-right: 40px;

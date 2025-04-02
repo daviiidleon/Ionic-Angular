@@ -37,6 +37,7 @@ import {
 import {RouterLink} from "@angular/router";
 import {addIcons} from "ionicons";
 import {CabeceraComponent} from "../cabecera/cabecera.component";
+import {FooterComponent} from "../footer/footer.component";
 
 
 @Component({
@@ -44,7 +45,7 @@ import {CabeceraComponent} from "../cabecera/cabecera.component";
   templateUrl: './product-list.page.html',
   styleUrls: ['./product-list.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonItem, IonLabel, IonList, IonListHeader, IonThumbnail, IonSearchbar, IonRefresher, IonRefresherContent, RouterLink, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, CabeceraComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonItem, IonLabel, IonList, IonListHeader, IonThumbnail, IonSearchbar, IonRefresher, IonRefresherContent, RouterLink, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, CabeceraComponent, FooterComponent]
 })
 export class ProductListPage implements OnInit {
 

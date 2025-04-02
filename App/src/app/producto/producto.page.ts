@@ -16,6 +16,7 @@ import {
   IonButton, IonIcon
 } from "@ionic/angular/standalone";
 import {CabeceraComponent} from "../cabecera/cabecera.component";
+import {FooterComponent} from "../footer/footer.component";
 
 @Component({
   selector: 'app-producto',
@@ -36,7 +37,8 @@ import {CabeceraComponent} from "../cabecera/cabecera.component";
     IonSpinner,
     IonButton,
     CabeceraComponent,
-    IonIcon
+    IonIcon,
+    FooterComponent
   ]
 })
 export class ProductoPage implements OnInit {
