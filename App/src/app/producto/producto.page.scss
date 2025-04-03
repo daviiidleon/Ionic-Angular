@@ -109,6 +109,24 @@ ion-button {
   width: 100%;
 }
 
+/* Ícono de corazón */
+.favorite-icon {
+  font-size: 40px;
+  color: black; /* Color gris por defecto */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+  margin-bottom: 5%;
+  /*border-style: solid;*/
+  /*border-radius: 30px;*/
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 10px;
+}
+
+
+
+
+
 /*
 ion-img {
   border-style: solid;

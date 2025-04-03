@@ -1,0 +1,13 @@
+ion-content {
+  --background: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
+  padding: 0;
+  margin: 0;
+}
+
+app-footer {
+  margin-top: auto; /* Empuja el footer hacia abajo */
+}
+

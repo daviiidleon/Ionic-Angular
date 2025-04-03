@@ -42,4 +42,9 @@ export class CabeceraComponent {
   goToLogin(showRegister: boolean = false) {
     this.router.navigate(['/login'], { queryParams: { register: showRegister ? 'true' : 'false' } });
   }
+
+  // Redirige a la página de Wishlist
+  goToWishlist() {
+    this.router.navigate(['/wishlist']);  // Asegúrate de tener la ruta 'wishlist' configurada en tu archivo de rutas
+  }
 }

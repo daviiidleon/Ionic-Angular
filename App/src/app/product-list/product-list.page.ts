@@ -83,7 +83,6 @@ export class ProductListPage implements OnInit {
       });
     }
   }
-
   // Método para refrescar los productos (doRefresh)
   async doRefresh(event: any) {
     console.log('Inicio de la operación de refresco');

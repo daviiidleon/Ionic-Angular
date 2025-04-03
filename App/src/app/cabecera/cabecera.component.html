@@ -25,7 +25,9 @@
       </div>
     </div>
 
-    <ion-icon name="heart-sharp" size="large"></ion-icon>
+    <!-- Añadir la acción para redirigir a wishlist -->
+    <ion-icon name="heart-sharp" size="large" (click)="goToWishlist()"></ion-icon>
+
     <ion-icon name="cart-sharp" slot="end" size="large"></ion-icon>
   </div>
 </ion-header>
