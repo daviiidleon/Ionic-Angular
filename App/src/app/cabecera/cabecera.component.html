@@ -8,11 +8,52 @@
   </div>
 
   <div class="header-right">
-    <!-- Contenedor envolvente para el icono y el formulario -->
     <div class="user-icon-wrapper" (mouseover)="showForm()" (mouseleave)="hideForm()">
       <ion-icon name="person-sharp" size="large"></ion-icon>
 
-      <!-- Formulario que aparece al pasar el ratón -->
+      <div class="form-wrapper" *ngIf="showLoginForm" (mouseenter)="showForm()" (mouseleave)="hideForm()">
+        <div class="form-container">
+          <!-- Si hay usuario autenticado -->
+          <div *ngIf="user; else loginTemplate">
+            <p>Hola, {{ user.displayName || user.email }}</p>
+            <ion-button expand="full" color="a" (click)="goToProfile()">Tu perfil</ion-button>
+            <ion-button expand="full" color="danger" (click)="logout()">Cerrar sesión</ion-button>
+          </div>
+
+          <!-- Si NO hay usuario autenticado -->
+          <ng-template #loginTemplate>
+            <ion-button expand="full" color="a" (click)="goToLogin()">Iniciar Sesión</ion-button>
+            <div class="links">
+              <a href="#" (click)="goToLogin(true)">¿Nuevo cliente? Regístrate ahora</a>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <ion-icon name="heart-sharp" size="large" (click)="goToWishlist()"></ion-icon>
+    <ion-icon name="cart-sharp" slot="end" size="large" (click)="goToPay()"></ion-icon>
+  </div>
+</ion-header>
+
+
+
+<!--
+<ion-header class="cabecera">
+  <div class="cabecera-content">
+    <ion-menu-button autoHide="false" menu="main-menu"></ion-menu-button>
+
+    <div class="menu-logo-container" (click)="goToHome()">
+      <img src="../assets/productMarket/logoRopaD.png" alt="logo">
+    </div>
+  </div>
+
+  <div class="header-right">
+    //Contenedor envolvente para el icono y el formulario
+    <div class="user-icon-wrapper" (mouseover)="showForm()" (mouseleave)="hideForm()">
+      <ion-icon name="person-sharp" size="large"></ion-icon>
+
+     //Formulario que aparece al pasar el ratón
       <div class="form-wrapper" *ngIf="showLoginForm" (mouseenter)="showForm()" (mouseleave)="hideForm()">
         <div class="form-container">
           <div *ngIf="showLoginForm">
@@ -25,9 +66,10 @@
       </div>
     </div>
 
-    <!-- Añadir la acción para redirigir a wishlist -->
+    //Añadir la acción para redirigir a wishlist
     <ion-icon name="heart-sharp" size="large" (click)="goToWishlist()"></ion-icon>
 
     <ion-icon name="cart-sharp" slot="end" size="large" (click)="goToPay()"></ion-icon>
   </div>
 </ion-header>
+-->

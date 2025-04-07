@@ -14,9 +14,8 @@ export class AuthService {
     private router: Router  // Permite redirigir al usuario
   ) {}
 
-  // Método para iniciar sesión con email y contraseña
-  login(email: string, password: string) {
-    return this.firebaseService.loginWithEmailAndPassword(email, password)
+  async login(email: string, password: string) {
+    return await this.firebaseService.loginWithEmailAndPassword(email, password)
       .then((userCredential) => {
         console.log('Inicio de sesión exitoso:', userCredential.user);
         // Aquí puedes redirigir a la página de inicio
@@ -28,7 +27,6 @@ export class AuthService {
       });
   }
 
-  // Método para registrar un nuevo usuario con email y contraseña
   register(email: string, password: string) {
     return this.firebaseService.registerWithEmailAndPassword(email, password)
       .then((userCredential) => {
