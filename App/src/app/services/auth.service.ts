@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';  // Importa el servicio de Firebase
-import { Router } from '@angular/router';  // Para redirigir a otras páginas
+import { Router } from '@angular/router';  // Para redirigir a otras páginasss
 
 @Injectable({
   providedIn: 'root'
