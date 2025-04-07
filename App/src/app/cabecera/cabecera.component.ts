@@ -47,4 +47,8 @@ export class CabeceraComponent {
   goToWishlist() {
     this.router.navigate(['/wishlist']);  // Asegúrate de tener la ruta 'wishlist' configurada en tu archivo de rutas
   }
+
+  goToPay() {
+    this.router.navigate(['/pay']);
+  }
 }

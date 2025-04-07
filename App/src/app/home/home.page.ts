@@ -64,7 +64,7 @@ export class HomePage implements OnInit {
   }
 
   goToProducts() {
-    this.router.navigate(['/productos']); // Aquí '/productos' es la ruta de la página de productos
+    this.router.navigate(['/product-list']); // Aquí '/productos' es la ruta de la página de productos
   }
 
   ngOnInit() {}

@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="pay-page">
+  <div class="cart-wrapper">
+    <div class="cart-container">
+
+      <!-- MOSTRAR SIEMPRE EL MENSAJE DE BOLSA VACÍA -->
+      <div class="empty-cart">
+        <ion-icon class="icono" name="cart-sharp"></ion-icon>
+        <h2>Tu bolsa está vacía</h2>
+        <p>Los artículos permanecerán en tu bolsa durante 60 minutos. Después se moverán a tus artículos guardados.</p>
+        <ion-button class="saved-items-btn" (click)="verGuardados()">Ver artículos guardados</ion-button>
+        <a class="seguir-comprando" (click)="seguirComprando()">Seguir comprando</a>
+      </div>
+
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</ion-content>

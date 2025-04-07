@@ -25,5 +25,9 @@ export const routes: Routes = [
   {
     path: 'wishlist',
     loadComponent: () => import('./wishlist/wishlist.page').then( m => m.WishlistPage)
+  },
+  {
+    path: 'pay',
+    loadComponent: () => import('./pay/pay.page').then( m => m.PayPage)
   }
 ];

@@ -1,0 +1,114 @@
+ion-content {
+  --background: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.cart-container {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cart-container h2 {
+  font-size: 2rem; /* Aumentado tamaño de fuente */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cart-items ion-item {
+  --inner-padding-end: 0;
+  --padding-start: 0;
+}
+
+.cart-items img {
+  border-radius: 8px;
+}
+
+.cart-items ion-label h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.cart-items ion-label p {
+  margin: 4px 0;
+}
+
+.cart-summary {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.cart-summary p {
+  font-size: 1.5rem; /* Aumentado tamaño de fuente */
+  margin-bottom: 1rem;
+}
+
+.cart-summary ion-button {
+  font-weight: bold;
+}
+
+.checkout-btn {
+  --background: #000;
+  --color: #fff;
+}
+
+app-footer {
+  margin-top: auto;
+}
+
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.empty-cart h2 {
+  font-size: 2.2rem; /* Aumentado tamaño de fuente */
+  margin-bottom: 1rem;
+}
+
+.empty-cart p {
+  color: #666;
+  font-size: 16px; /* Aumentado tamaño de fuente */
+  max-width: 300px;
+  margin-bottom: 2rem;
+}
+
+.saved-items-btn {
+  --background: #000;
+  --color: #fff;
+  height: 50px; /* Aumentado tamaño del botón */
+  font-size: 18px; /* Aumentado tamaño de fuente */
+  margin-bottom: 1rem;
+  width: 250px;
+  border-radius: 8px;
+}
+
+.seguir-comprando {
+  font-size: 16px; /* Aumentado tamaño de fuente */
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.icono {
+  font-size: 40px; /* Aumentado tamaño del ícono */
+}

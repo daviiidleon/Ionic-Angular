@@ -2,8 +2,16 @@
   <app-cabecera></app-cabecera>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <!-- Contenido principal -->
+<ion-content [fullscreen]="true" class="wishlist-wrapper">
+  <div class="wishlist-content-wrapper">
+    <!-- MENSAJE DE ARTÍCULOS GUARDADOS VACÍOS -->
+    <div class="empty-wishlist">
+      <ion-icon name="heart-sharp" class="wishlist-icon"></ion-icon>
+      <h2>No tienes ningún artículo guardado</h2>
+      <p>Guarda mientras compras seleccionando el corazón, nosotros sincronizamos tus artículos guardados en todos tus dispositivos. Así de fácil.</p>
+      <ion-button class="start-shopping-btn" (click)="startShopping()">Empieza a comprar</ion-button>
+    </div>
+  </div>
 
   <app-footer></app-footer>
 </ion-content>
