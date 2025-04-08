@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Título -->
+  <div class="profile-header">
+    <h2>¡Hola, {{ user.displayName || 'Usuario' }}!</h2>
+    <p>Gestiona tu cuenta y opciones a continuación.</p>
+  </div>
+
+  <!-- Opciones -->
+  <div class="options-container">
+    <div class="option-box" (click)="goToMyData()">
+      <ion-icon name="person-circle-outline" size="large"></ion-icon>
+      <div class="text-container">
+        <p>Mis Datos</p>
+        <p class="description">Edita tus datos personales y de facturación</p>
+      </div>
+    </div>
+    <div class="option-box" (click)="goToMyPurchases()">
+      <ion-icon name="cart-outline" size="large"></ion-icon>
+      <div class="text-container">
+        <p>Mis Compras</p>
+        <p class="description">Consulta tus compras online</p>
+      </div>
+    </div>
+    <div class="option-box" (click)="goToMyFavorites()">
+      <ion-icon name="heart-outline" size="large"></ion-icon>
+      <div class="text-container">
+        <p>Mis Favoritos</p>
+        <p class="description">Gestiona y accede a tus favoritos</p>
+      </div>
+    </div>
+    <div class="option-box" (click)="logout()">
+      <ion-icon name="log-out-outline" size="large"></ion-icon>
+      <div class="text-container">
+        <p>Cerrar Sesión</p>
+        <p class="description">Salir de tu cuenta</p>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>

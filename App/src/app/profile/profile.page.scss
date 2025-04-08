@@ -1,0 +1,86 @@
+.profile-header {
+  text-align: center;
+  padding: 40px 0;  /* Aumentar padding superior para centrar más el contenido */
+}
+
+.profile-header h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-header p {
+  font-size: 16px;
+  color: #777;
+}
+
+.options-container {
+  display: flex;
+  justify-content: center;  /* Centra los recuadros */
+  gap: 10px;  /* Espacio entre los recuadros */
+  margin-top: 40px;  /* Aumentamos el margen superior para un mejor centrado */
+}
+
+.option-box {
+  display: flex;
+  align-items: center;  /* Alinea el icono y el texto */
+  padding: 15px;  /* Padding general dentro del recuadro */
+  width: 300px;  /* Alargado horizontalmente */
+  height: 120px;  /* Más alto para dar espacio al icono y texto */
+  border: 1px solid #ccc;  /* Borde del recuadro */
+  background-color: #fff;  /* Fondo blanco */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 20px;  /* Márgenes iguales en todos los lados */
+}
+
+.option-box:hover {
+  transform: scale(1.05);  /* Efecto de hover para aumentar el tamaño */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Sombra al pasar el ratón */
+}
+
+.option-box ion-icon {
+  font-size: 40px;  /* Icono más grande para mayor visibilidad */
+  margin-right: 15px;  /* Espacio entre el icono y el texto */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;  /* Coloca el título y la descripción en columna */
+  justify-content: center;  /* Centra el contenido dentro del contenedor de texto */
+}
+
+.option-box p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;  /* Espacio entre el título y la descripción */
+  text-align: left;  /* Justificado a la izquierda */
+  padding: 0 10px;  /* Padding horizontal igual a los lados */
+}
+
+.option-box .description {
+  font-size: 12px;  /* Tamaño de la descripción más pequeño */
+  color: #777;  /* Color más suave para la descripción */
+  margin-top: 5px;  /* Separar un poco la descripción del título */
+  text-align: left;  /* Justificado a la izquierda */
+  padding: 0 10px;  /* Padding horizontal igual a los lados */
+}
+
+/* Asegurarse de que el footer esté fijo al fondo */
+ion-content {
+  --background: transparent;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 60px; /* Asegura que el contenido no quede cubierto por el footer */
+}
+
+app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+

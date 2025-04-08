@@ -54,11 +54,27 @@ ion-input {
 
 ion-button {
   width: 100%;
-  height: 50px;
-  font-size: 15px;
+  height: 40px;
+  font-size: 12px;
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: black;
+}
+
+.botones {
+  --background: transparent !important;
+  --border: none !important;
+  --box-shadow: none !important;
+  color: white !important;
+  font-size: 12px !important;
+  padding: 5px 10px !important;
+  text-align: left;
+  width: auto;
+  margin: 3px 0 !important;
+  text-decoration: none !important;
+  line-height: 1.2 !important;
+  height: auto !important;
+  min-height: 0 !important;
 }
 
 .links {
@@ -112,9 +128,6 @@ ion-button {
   object-fit: contain;
 }
 
-
-
-
 /* Efecto hover para los iconos */
 .header-right ion-icon {
   transition: transform 0.3s ease, color 0.3s ease; /* Animación suave */
@@ -147,3 +160,5 @@ ion-router-outlet {
   margin-top: 90px; /* Ajustar margen del contenido */
   display: block;
 }
+
+

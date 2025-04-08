@@ -16,8 +16,8 @@
           <!-- Si hay usuario autenticado -->
           <div *ngIf="user; else loginTemplate">
             <p>Hola, {{ user.displayName || user.email }}</p>
-            <ion-button expand="full" color="a" (click)="goToProfile()">Tu perfil</ion-button>
-            <ion-button expand="full" color="danger" (click)="logout()">Cerrar sesión</ion-button>
+            <ion-button class="botones" expand="full" (click)="goToProfile()">Tu perfil</ion-button>
+            <ion-button class="botones" expand="full" (click)="logout()">Cerrar sesión</ion-button>
           </div>
           <!-- IMPORTANTE -->
           <!-- Si NO hay usuario autenticado -->
