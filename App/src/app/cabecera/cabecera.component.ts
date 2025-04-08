@@ -69,9 +69,11 @@ export class CabeceraComponent implements OnInit {
   logout() {
     this.authService.logout().then(() => {
       this.user = null; // Esto puede omitirse porque el observable se actualiza
+      this.router.navigate(['/']); // Redirige a la página de inicio después de cerrar sesión
     });
   }
 }
+
 
 
 
