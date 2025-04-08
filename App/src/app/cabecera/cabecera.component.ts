@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import {
@@ -10,14 +10,23 @@ import {
 } from "ionicons/icons";
 import { FormsModule } from "@angular/forms";
 import { AuthService } from '../services/auth.service';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-cabecera',
   templateUrl: './cabecera.component.html',
   styleUrls: ['./cabecera.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonMenuButton, IonHeader, IonButton, IonButtons, IonInput, FormsModule, IonIcon, IonContent],
+  imports: [
+    CommonModule,
+    IonMenuButton,
+    IonHeader,
+    IonButton,
+    IonButtons,
+    IonInput,
+    FormsModule,
+    IonIcon,
+    IonContent
+  ],
 })
 export class CabeceraComponent implements OnInit {
   showLoginForm = false;
@@ -51,7 +60,9 @@ export class CabeceraComponent implements OnInit {
   }
 
   goToLogin(showRegister: boolean = false) {
-    this.router.navigate(['/login'], { queryParams: { register: showRegister ? 'true' : 'false' } });
+    this.router.navigate(['/login'], {
+      queryParams: { register: showRegister ? 'true' : 'false' }
+    });
   }
 
   goToWishlist() {
@@ -68,11 +79,14 @@ export class CabeceraComponent implements OnInit {
 
   logout() {
     this.authService.logout().then(() => {
-      this.user = null; // Esto puede omitirse porque el observable se actualiza
-      this.router.navigate(['/']); // Redirige a la página de inicio después de cerrar sesión
+      this.user = null;
+      this.router.navigate(['/']); // ✅ Redirige al home tras cerrar sesión
+    }).catch((error) => {
+      console.error('Error al cerrar sesión:', error);
     });
   }
 }
+
 
 
 
