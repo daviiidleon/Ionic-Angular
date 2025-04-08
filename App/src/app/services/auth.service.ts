@@ -1,5 +1,58 @@
-// src/app/services/auth.service.ts
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, User } from 'firebase/auth';
 
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private userSubject = new BehaviorSubject<User | null>(null);
+  user$ = this.userSubject.asObservable();
+  private auth = getAuth();
+
+  constructor() {
+    // Escuchar cambios de sesión
+    onAuthStateChanged(this.auth, (user) => {
+      this.userSubject.next(user);
+    });
+  }
+
+  // Obtener el usuario actual (sincrónico)
+  getCurrentUser(): User | null {
+    return this.userSubject.value;
+  }
+
+  // Observable del usuario (reactivo)
+  getAuthUserObservable() {
+    return this.user$;
+  }
+
+  // Iniciar sesión con correo y contraseña
+  login(email: string, password: string): Promise<User> {
+    return signInWithEmailAndPassword(this.auth, email, password).then((cred) => {
+      this.userSubject.next(cred.user);
+      return cred.user;
+    });
+  }
+
+  // Registrar nuevo usuario
+  register(email: string, password: string): Promise<User> {
+    return createUserWithEmailAndPassword(this.auth, email, password).then((cred) => {
+      this.userSubject.next(cred.user);
+      return cred.user;
+    });
+  }
+
+  // Cerrar sesión
+  logout(): Promise<void> {
+    return signOut(this.auth).then(() => {
+      this.userSubject.next(null);
+    });
+  }
+}
+
+// src/app/services/auth.service.ts
+/*
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';  // Importa el servicio de Firebase
 import { Router } from '@angular/router';  // Para redirigir a otras páginasss
@@ -62,3 +115,4 @@ export class AuthService {
     return this.getCurrentUser() !== null;
   }
 }
+*/

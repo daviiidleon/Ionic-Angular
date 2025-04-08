@@ -3,8 +3,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonInput, IonButton } from '@ionic/angular/standalone';
-import { AuthService } from '../services/auth.service';  // Importa el servicio de autenticación
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonSegment,
+  IonSegmentButton,
+  IonLabel,
+  IonInput,
+  IonButton
+} from '@ionic/angular/standalone';
+
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import { CabeceraComponent } from "../cabecera/cabecera.component";
 import { FooterComponent } from "../footer/footer.component";
 
@@ -13,7 +25,21 @@ import { FooterComponent } from "../footer/footer.component";
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonInput, IonButton, CommonModule, FormsModule, CabeceraComponent, FooterComponent]
+  imports: [
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonSegment,
+    IonSegmentButton,
+    IonLabel,
+    IonInput,
+    IonButton,
+    CommonModule,
+    FormsModule,
+    CabeceraComponent,
+    FooterComponent
+  ]
 })
 export class LoginPage implements OnInit {
   segmentValue: string = 'login';
@@ -30,16 +56,24 @@ export class LoginPage implements OnInit {
     confirmPassword: ''
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    const currentUser = await this.authService.getCurrentUser();
+    if (currentUser) {
+      this.router.navigate(['/']); // Redirige al home si ya está logueado
+    }
+  }
 
   // Función para iniciar sesión
   loginUser() {
     this.authService.login(this.login.email, this.login.password)
       .then(() => {
         console.log('Inicio de sesión exitoso');
-        // Aquí puedes redirigir al usuario a la página principal
+        this.router.navigate(['/']); // Redirige al home
       })
       .catch((error) => {
         console.error('Error al iniciar sesión', error);
@@ -56,13 +90,14 @@ export class LoginPage implements OnInit {
     this.authService.register(this.register.email, this.register.password)
       .then(() => {
         console.log('Registro exitoso');
-        // Aquí puedes redirigir al usuario al login
+        this.segmentValue = 'login'; // Cambia al segmento de login después del registro
       })
       .catch((error) => {
         console.error('Error en el registro', error);
       });
   }
 }
+
 
 
 

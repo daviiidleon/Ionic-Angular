@@ -9,6 +9,84 @@ import {
   cartSharp, shirtSharp, logInSharp, homeSharp, heartSharp, personSharp
 } from "ionicons/icons";
 import { FormsModule } from "@angular/forms";
+import { AuthService } from '../services/auth.service';
+import { ChangeDetectorRef } from '@angular/core';
+
+@Component({
+  selector: 'app-cabecera',
+  templateUrl: './cabecera.component.html',
+  styleUrls: ['./cabecera.component.scss'],
+  standalone: true,
+  imports: [CommonModule, IonMenuButton, IonHeader, IonButton, IonButtons, IonInput, FormsModule, IonIcon, IonContent],
+})
+export class CabeceraComponent implements OnInit {
+  showLoginForm = false;
+  user: any = null;
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private cd: ChangeDetectorRef
+  ) {
+    addIcons({ cartSharp, shirtSharp, logInSharp, homeSharp, heartSharp, personSharp });
+  }
+
+  ngOnInit() {
+    this.authService.getAuthUserObservable().subscribe(user => {
+      this.user = user;
+      this.cd.detectChanges(); // Forzar la detección de cambios
+    });
+  }
+
+  showForm() {
+    this.showLoginForm = true;
+  }
+
+  hideForm() {
+    this.showLoginForm = false;
+  }
+
+  goToHome() {
+    this.router.navigate(['/']);
+  }
+
+  goToLogin(showRegister: boolean = false) {
+    this.router.navigate(['/login'], { queryParams: { register: showRegister ? 'true' : 'false' } });
+  }
+
+  goToWishlist() {
+    this.router.navigate(['/wishlist']);
+  }
+
+  goToPay() {
+    this.router.navigate(['/pay']);
+  }
+
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  logout() {
+    this.authService.logout().then(() => {
+      this.user = null; // Esto puede omitirse porque el observable se actualiza
+    });
+  }
+}
+
+
+
+/*
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import {
+  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonInput, IonMenuButton
+} from "@ionic/angular/standalone";
+import { addIcons } from "ionicons";
+import {
+  cartSharp, shirtSharp, logInSharp, homeSharp, heartSharp, personSharp
+} from "ionicons/icons";
+import { FormsModule } from "@angular/forms";
 import { AuthService } from '../services/auth.service'; // Asegúrate que el path sea correcto
 
 @Component({
@@ -74,6 +152,8 @@ export class CabeceraComponent implements OnInit {
     });
   }
 }
+*/
+
 
 /*
 import { Component } from '@angular/core';
