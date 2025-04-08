@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonicModule } from '@ionic/angular'; // Asegúrate de importar IonicModule
@@ -26,6 +26,7 @@ import {
   warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
 } from 'ionicons/icons';
 import {addIcons} from "ionicons";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -35,17 +36,18 @@ import {addIcons} from "ionicons";
   imports: [CommonModule, FormsModule, CabeceraComponent, FooterComponent, IonicModule] // Asegúrate de que IonicModule esté en los imports
 })
 export class ProfilePage implements OnInit {
+  user: any = null;
 
-  user = {
-    displayName: 'Juan Pérez', // Cambia esto por el nombre real del usuario o lo que estés utilizando
-    email: 'juanperez@example.com'  // Cambia esto por el correo real del usuario
-  };
-
-  constructor() {
+  constructor(private authService: AuthService,
+              private cd: ChangeDetectorRef) {
     addIcons({ logOutOutline, cartOutline, personCircleOutline ,cartSharp, shirtSharp ,logInSharp,homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }
 
   ngOnInit() {
+    this.authService.getAuthUserObservable().subscribe(user => {
+      this.user = user;
+      this.cd.detectChanges(); // Forzar la detección de cambios
+    });
   }
 
   goToMyData() {
