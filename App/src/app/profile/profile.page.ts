@@ -27,6 +27,7 @@ import {
 } from 'ionicons/icons';
 import {addIcons} from "ionicons";
 import {AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -38,8 +39,11 @@ import {AuthService} from "../services/auth.service";
 export class ProfilePage implements OnInit {
   user: any = null;
 
-  constructor(private authService: AuthService,
-              private cd: ChangeDetectorRef) {
+  constructor(
+    private authService: AuthService,
+    private cd: ChangeDetectorRef,
+    private router: Router
+  ) {
     addIcons({ logOutOutline, cartOutline, personCircleOutline ,cartSharp, shirtSharp ,logInSharp,homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }
 
@@ -56,17 +60,18 @@ export class ProfilePage implements OnInit {
   }
 
   goToMyPurchases() {
-    console.log('Navegando a Mis Compras');
-    // Aquí puedes agregar la lógica para navegar a la página de 'Mis Compras'
+    this.router.navigate(['/pay']);
   }
 
   goToMyFavorites() {
-    console.log('Navegando a Mis Favoritos');
+    this.router.navigate(['/wishlist']);
     // Aquí puedes agregar la lógica para navegar a la página de 'Mis Favoritos'
   }
 
   logout() {
-    console.log('Cerrando sesión');
-    // Aquí puedes agregar la lógica para cerrar la sesión
+    this.authService.logout().then(() => {
+      this.user = null; // Esto puede omitirse porque el observable se actualiza
+      this.router.navigate(['/home']);
+    });
   }
 }
