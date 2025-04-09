@@ -61,3 +61,69 @@ app-footer {
   background-color: #fff; /* Color de fondo del footer */
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
 }
+
+//
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 250px;
+  margin-left: 3%;
+}
+
+.right-column {
+  flex: 2;
+  min-width: 500px;
+  padding-left: 40px;
+  margin-right: 14%;
+  margin-top: 3%;
+}
+
+.profile-header {
+  text-align: left;
+  padding: 30px 20px 10px;
+}
+
+.profile-header h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.profile-header p {
+  font-size: 16px;
+  color: #777;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.option-box {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-right: 39%;
+}
+
+.option-box:hover {
+  background-color: #f9f9f9;
+}
+
+.option-box ion-icon {
+  font-size: 28px;
+  color: #3a3a3a;
+  margin-right: 16px;
+}
