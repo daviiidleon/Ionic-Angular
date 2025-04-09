@@ -1,6 +1,73 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, User } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore'; // Importamos Firestore
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private userSubject = new BehaviorSubject<User | null>(null);
+  user$ = this.userSubject.asObservable();
+  private auth = getAuth();
+  private db = getFirestore(); // Firestore
+
+  constructor() {
+    // Escuchar cambios de sesión
+    onAuthStateChanged(this.auth, (user) => {
+      this.userSubject.next(user);
+    });
+  }
+
+  // Obtener el usuario actual (sincrónico)
+  getCurrentUser(): User | null {
+    return this.userSubject.value;
+  }
+
+  // Observable del usuario (reactivo)
+  getAuthUserObservable() {
+    return this.user$;
+  }
+
+  // Iniciar sesión con correo y contraseña
+  login(email: string, password: string): Promise<User> {
+    return signInWithEmailAndPassword(this.auth, email, password).then((cred) => {
+      this.userSubject.next(cred.user);
+      return cred.user;
+    });
+  }
+
+  // Registrar nuevo usuario
+  register(registerData: any): Promise<User> {
+    return createUserWithEmailAndPassword(this.auth, registerData.email, registerData.password).then(async (cred) => {
+      // Guardamos los datos adicionales del usuario en Firestore
+      const userRef = doc(this.db, 'users', cred.user.uid);
+      await setDoc(userRef, {
+        name: registerData.name,
+        apellidos: registerData.apellidos,
+        telefono: registerData.telefono,
+        zipCode: registerData.zipCode
+      });
+
+      this.userSubject.next(cred.user);
+      return cred.user;
+    });
+  }
+
+  // Cerrar sesión
+  logout(): Promise<void> {
+    return signOut(this.auth).then(() => {
+      this.userSubject.next(null);
+    });
+  }
+}
+
+
+
+/*
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, User } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +117,9 @@ export class AuthService {
     });
   }
 }
+*/
+
+
 
 // src/app/services/auth.service.ts
 /*

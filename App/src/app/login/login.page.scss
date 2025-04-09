@@ -1,15 +1,15 @@
-/* Contenedor principal */
+//Contenedor principal
 .container {
-  margin-top: 5%;  /* Reduce el margen superior */
+  margin-top: 5%;  //Reduce el margen superior
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
-  flex-grow: 1;  /* Permite que el contenido crezca y ocupe espacio */
+  flex-grow: 1;  //Permite que el contenido crezca y ocupe espacio
 }
 
-/* Formulario en general */
+//Formulario en general
 .form-container {
   width: 100%;
   max-width: 500px;
@@ -17,10 +17,10 @@
   flex-direction: column;
   gap: 18px;
   padding: 20px;
-  margin-bottom: 0px; /* Eliminamos casi todo el margen inferior */
+  margin-bottom: 0px; //Eliminamos casi todo el margen inferior
 }
 
-/* Ajuste de los inputs */
+//Ajuste de los inputs
 ion-input {
   --background: #f8f8f8;
   --color: #333;
@@ -31,10 +31,10 @@ ion-input {
   padding: 14px;
 }
 
-/* Botón de acción */
+//Botón de acción
 ion-button {
-  --background: #000;  /* Asegura que el fondo sea completamente negro */
-  --color: white;      /* El color del texto es blanco */
+  --background: #000;
+  --color: white;
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
@@ -43,12 +43,11 @@ ion-button {
 }
 
 ion-button:hover {
-  filter: brightness(0.85);  /* Ajuste de brillo en el hover */
+  filter: brightness(0.85);
 }
 
-/* Enlace de olvido de contraseña */
 .forgot-password {
-  color: #000;  /* Color negro para el texto */
+  color: #000;
   text-decoration: none;
   font-size: 15px;
   text-align: center;
@@ -60,52 +59,49 @@ ion-button:hover {
   text-decoration: underline;
 }
 
-/* Fijar el footer en la parte inferior */
 app-footer {
-  margin-top: auto;  /* Esto asegura que el footer se mueva hacia abajo automáticamente */
+  margin-top: auto;
   width: 100%;
-  padding: 10px 0; /* Reduce aún más el padding del footer */
+  padding: 10px 0;
   position: absolute;
-  bottom: 0; /* Asegura que el footer esté en la parte inferior */
+  bottom: 0;
   left: 0;
   z-index: 1;
 }
 
-/* Asegurarse de que el contenido no se solape con el footer */
 ion-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-bottom: 0px; /* Se elimina el padding para reducir el espacio */
-  flex-grow: 1; /* Deja que el contenido crezca y se ajuste automáticamente */
+  padding-bottom: 0px;
+  flex-grow: 1;
 }
 
-/* Estilo para eliminar el color azul de los botones de los segmentos */
 ion-segment {
-  --indicator-color: transparent !important;  /* Elimina el indicador azul de selección */
-  --background: transparent !important; /* Fondo transparente en segment */
-  --color: #000 !important; /* Color del texto a negro */
+  --indicator-color: transparent !important;
+  --background: transparent !important;
+  --color: #000 !important;
 
 }
 
 ion-segment-button {
-  --color: #000 !important;  /* Cambiar color del texto a negro */
-  --background: transparent !important;  /* Fondo transparente */
-  --border-color: transparent !important; /* Eliminar el borde */
+  --color: #000 !important;
+  --background: transparent !important;
+  --border-color: transparent !important;
   --color-checked: var(--ion-color-dark);
 }
 
 ion-segment-button.activated {
-  --color: #000 !important;  /* Color negro cuando está activado */
-  --background: transparent !important;  /* Fondo transparente cuando está activado */
+  --color: #000 !important;
+  --background: transparent !important;
 }
 
-/* Eliminar efecto hover del botón de segmento */
 ion-segment-button:hover {
-  --background: transparent !important;  /* Asegura que no haya fondo en el hover */
-  --color: #000 !important;  /* Color del texto cuando está en hover */
+  --background: transparent !important;
+  --color: #000 !important;
 }
 
 ion-label {
   color: black;
 }
+

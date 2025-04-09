@@ -1,5 +1,108 @@
-// src/app/pages/login/login.page.ts
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonSegment,
+  IonSegmentButton,
+  IonLabel,
+  IonInput,
+  IonButton
+} from '@ionic/angular/standalone';
 
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { CabeceraComponent } from "../cabecera/cabecera.component";
+import { FooterComponent } from "../footer/footer.component";
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+  standalone: true,
+  imports: [
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonSegment,
+    IonSegmentButton,
+    IonLabel,
+    IonInput,
+    IonButton,
+    CommonModule,
+    FormsModule,
+    CabeceraComponent,
+    FooterComponent
+  ]
+})
+export class LoginPage implements OnInit {
+  segmentValue: string = 'login';
+
+  login = {
+    email: '',
+    password: ''
+  };
+
+  register = {
+    name: '',
+    apellidos: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    telefono: '',
+    zipCode: ''
+  };
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  async ngOnInit() {
+    const currentUser = await this.authService.getCurrentUser();
+    if (currentUser) {
+      this.router.navigate(['/']); // Redirige al home si ya está logueado
+    }
+  }
+
+  // Función para iniciar sesión
+  loginUser() {
+    this.authService.login(this.login.email, this.login.password)
+      .then(() => {
+        console.log('Inicio de sesión exitoso');
+        this.router.navigate(['/']); // Redirige al home
+      })
+      .catch((error) => {
+        console.error('Error al iniciar sesión', error);
+      });
+  }
+
+  // Función para registrar un nuevo usuario
+  registerUser() {
+    if (this.register.password !== this.register.confirmPassword) {
+      alert('Las contraseñas no coinciden.');
+      return;
+    }
+
+    this.authService.register(this.register)
+      .then(() => {
+        console.log('Registro exitoso');
+        this.segmentValue = 'login'; // Cambia al segmento de login después del registro
+      })
+      .catch((error) => {
+        console.error('Error en el registro', error);
+      });
+  }
+}
+
+
+
+/*
+// src/app/pages/login/login.page.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -97,7 +200,7 @@ export class LoginPage implements OnInit {
       });
   }
 }
-
+*/
 
 
 
