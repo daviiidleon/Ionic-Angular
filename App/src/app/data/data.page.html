@@ -52,7 +52,7 @@
     <!-- Columna izquierda -->
     <div class="left-column">
       <div class="profile-header">
-        <h2>Hola, {{ user.displayName || user.email }}</h2>
+        <h2>Hola, {{ user?.displayName || user?.email }}</h2>
         <p>Gestiona tu cuenta y opciones a continuación.</p>
       </div>
 
@@ -97,27 +97,52 @@
             <p class="description">Edita tus datos personales y de facturación</p>
           </div>
 
-          <!-- Formulario editable -->
-          <form>
-            <div class="info-grid">
-              <div><label>Nombre</label><input name="nombre" /></div>
-              <div><label>Apellidos</label><input name="apellidos" /></div>
-              <div><label>Fecha de Nacimiento</label><input type="date" name="fechaNacimiento" /></div>
-              <div><label>Género</label>
-                <select name="genero">
-                  <option value="Masculino">Masculino</option>
-                  <option value="Femenino">Femenino</option>
-                  <option value="Otro">Otro</option>
+          <form #form="ngForm">
+            <div class="form-row two-columns">
+              <div>
+                <label>Nombre</label>
+                <input name="nombre" [(ngModel)]="formData.nombre" />
+              </div>
+              <div>
+                <label>Apellidos</label>
+                <input name="apellidos" [(ngModel)]="formData.apellidos" />
+              </div>
+            </div>
+
+            <div class="form-row two-columns">
+              <div>
+                <label>Teléfono</label>
+                <input name="telefono" [(ngModel)]="formData.telefono" />
+              </div>
+              <div>
+                <label>Código Postal</label>
+                <input name="zipCode" [(ngModel)]="formData.zipCode" />
+              </div>
+            </div>
+
+            <div class="form-row two-columns">
+              <div>
+                <label>Fecha de Nacimiento</label>
+                <input type="date" name="fechaNacimiento" [(ngModel)]="formData.fechaNacimiento" />
+              </div>
+              <div>
+                <label>Género</label>
+                <select name="genero" [(ngModel)]="formData.genero">
+                  <option value="">Seleccionar</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+                  <option value="otro">Otro</option>
                 </select>
               </div>
-              <div><label>Teléfono</label><input name="telefono" /></div>
-              <div><label>Código Postal</label><input name="codigoPostal" /></div>
-              <div><label>Email</label><input name="email" /></div>
             </div>
-          </form>
 
-          <ion-button expand="block">Guardar Cambios</ion-button>
-          <ion-button expand="block">Editar Datos</ion-button>
+            <div class="form-row">
+              <label>Email</label>
+              <input name="email" [(ngModel)]="formData.email" disabled />
+            </div>
+
+            <ion-button (click)="guardarDatos()">Guardar Cambios</ion-button>
+          </form>
         </div>
       </div>
     </div>
@@ -125,5 +150,7 @@
 
   <app-footer></app-footer>
 </ion-content>
+
+
 
 
