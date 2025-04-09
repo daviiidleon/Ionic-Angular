@@ -1,3 +1,67 @@
+.profile-header {
+  text-align: left;
+  padding: 30px 20px 10px;
+  margin-left: 5%;
+}
+
+.profile-header h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.profile-header p {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Opciones */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px;
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 78%;
+}
+
+.option-box {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.option-box:hover {
+  background-color: #f9f9f9;
+}
+
+.option-box ion-icon {
+  font-size: 28px;
+  color: #3a3a3a;
+  margin-right: 16px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-container .title {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.text-container .description {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 0;
+}
+
 app-footer {
   position: fixed;
   bottom: 0;
@@ -5,4 +69,5 @@ app-footer {
   width: 100%;
   text-align: center;
   padding: 10px 0;
+  background: #fff;
 }
