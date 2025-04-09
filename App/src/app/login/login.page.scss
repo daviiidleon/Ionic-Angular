@@ -1,26 +1,85 @@
-//Contenedor principal
+// Contenedor principal centrado y ancho consistente
 .container {
-  margin-top: 5%;  //Reduce el margen superior
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
-  flex-grow: 1;  //Permite que el contenido crezca y ocupe espacio
+  flex-grow: 1;
+  width: 100%;
+  max-width: 700px; // límite de ancho para todo el contenido
+  margin-left: auto;
+  margin-right: auto;
 }
 
-//Formulario en general
+// Aseguramos que el segmento y los formularios compartan el mismo ancho
+ion-segment {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+// Formulario login adaptado al nuevo ancho
 .form-container {
   width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 18px;
   padding: 20px;
-  margin-bottom: 0px; //Eliminamos casi todo el margen inferior
+  margin-bottom: 40px;
+  background: white;
 }
 
-//Ajuste de los inputs
+// Registro estructura ajustada al nuevo ancho
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  background: white;
+}
+
+.left-column {
+  text-align: center;
+}
+
+.right-column {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 0;
+}
+
+// Espacio inferior en registro
+.register-bottom-space {
+  padding-bottom: 100px;
+}
+
+// Estilo para el grid de los formularios
+.two-columns {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .form-row {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row input {
+    width: 100%;
+  }
+}
+
+// Estilo de cada input
 ion-input {
   --background: #f8f8f8;
   --color: #333;
@@ -31,7 +90,7 @@ ion-input {
   padding: 14px;
 }
 
-//Botón de acción
+// Botón de acción
 ion-button {
   --background: #000;
   --color: white;
@@ -46,6 +105,7 @@ ion-button:hover {
   filter: brightness(0.85);
 }
 
+// Enlace de "Olvidaste la contraseña?"
 .forgot-password {
   color: #000;
   text-decoration: none;
@@ -59,6 +119,7 @@ ion-button:hover {
   text-decoration: underline;
 }
 
+// Footer fijo
 app-footer {
   margin-top: auto;
   width: 100%;
@@ -67,6 +128,7 @@ app-footer {
   bottom: 0;
   left: 0;
   z-index: 1;
+
 }
 
 ion-content {
@@ -81,7 +143,6 @@ ion-segment {
   --indicator-color: transparent !important;
   --background: transparent !important;
   --color: #000 !important;
-
 }
 
 ion-segment-button {
@@ -105,3 +166,27 @@ ion-label {
   color: black;
 }
 
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  input, select {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 0px;
+    background: #f5f5f5;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    border: 1px solid black;
+    background: #fff;
+  }
+}

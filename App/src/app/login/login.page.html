@@ -14,26 +14,61 @@
     </ion-segment>
 
     <div *ngIf="segmentValue === 'login'" class="form-container">
-      <ion-input label="Correo electrónico" type="email" [(ngModel)]="login.email"></ion-input>
-      <ion-input label="Contraseña" type="password" [(ngModel)]="login.password"></ion-input>
+      <div class="form-row">
+        <label for="email">E-mail</label>
+        <ion-input id="email" type="email" placeholder="Correo electrónico" [(ngModel)]="login.email"></ion-input>
+      </div>
+      <div class="form-row">
+        <label for="password">Contraseña</label>
+        <ion-input id="password" type="password" placeholder="Contraseña" [(ngModel)]="login.password"></ion-input>
+      </div>
       <ion-button expand="full" (click)="loginUser()">Entrar</ion-button>
       <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
     </div>
 
-    <div *ngIf="segmentValue === 'register'" class="form-container">
-      <ion-input label="Correo electrónico" type="email" [(ngModel)]="register.email"></ion-input>
-      <ion-input label="Nombre" type="text" [(ngModel)]="register.name"></ion-input>
-      <ion-input label="Apellidos" type="text" [(ngModel)]="register.apellidos"></ion-input>
-      <ion-input label="Contraseña" type="password" [(ngModel)]="register.password"></ion-input>
-      <ion-input label="Confirmar contraseña" type="password" [(ngModel)]="register.confirmPassword"></ion-input>
-      <ion-input label="Teléfono" type="text" [(ngModel)]="register.telefono"></ion-input>
-      <ion-input label="Código postal" type="text" [(ngModel)]="register.zipCode"></ion-input>
+    <div *ngIf="segmentValue === 'register'" class="form-container register-bottom-space">
+      <div class="form-row">
+        <label for="register-email">E-mail</label>
+        <ion-input id="register-email" type="email" placeholder="Correo electrónico" [(ngModel)]="register.email"></ion-input>
+      </div>
+      <div class="two-columns">
+        <div class="form-row">
+          <label for="name">Nombre</label>
+          <ion-input id="name" type="text" placeholder="Nombre" [(ngModel)]="register.name"></ion-input>
+        </div>
+        <div class="form-row">
+          <label for="apellidos">Apellidos</label>
+          <ion-input id="apellidos" type="text" placeholder="Apellidos" [(ngModel)]="register.apellidos"></ion-input>
+        </div>
+      </div>
+      <div class="two-columns">
+        <div class="form-row">
+          <label for="password-register">Contraseña</label>
+          <ion-input id="password-register" type="password" placeholder="Contraseña" [(ngModel)]="register.password"></ion-input>
+        </div>
+        <div class="form-row">
+          <label for="confirm-password">Confirmar contraseña</label>
+          <ion-input id="confirm-password" type="password" placeholder="Confirmar contraseña" [(ngModel)]="register.confirmPassword"></ion-input>
+        </div>
+      </div>
+      <div class="two-columns">
+        <div class="form-row">
+          <label for="phone">Teléfono</label>
+          <ion-input id="phone" type="text" placeholder="Teléfono" [(ngModel)]="register.telefono"></ion-input>
+        </div>
+        <div class="form-row">
+          <label for="zip-code">Código postal</label>
+          <ion-input id="zip-code" type="text" placeholder="Código postal" [(ngModel)]="register.zipCode"></ion-input>
+        </div>
+      </div>
       <ion-button expand="full" (click)="registerUser()">Registrarse</ion-button>
     </div>
   </div>
 
   <app-footer></app-footer>
 </ion-content>
+
+
 
 
 
