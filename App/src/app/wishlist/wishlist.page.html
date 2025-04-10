@@ -4,8 +4,8 @@
 
 <ion-content [fullscreen]="true">
   <div class="main-container">
+    <!-- Columna izquierda -->
     <div class="left-column">
-
       <div class="profile-header">
         <h2>Hola, {{ user?.displayName || user?.email }}</h2>
         <p>Gestiona tu cuenta y opciones a continuación.</p>
@@ -40,14 +40,12 @@
             <p class="description">Salir de tu cuenta</p>
           </div>
         </div>
-
       </div>
-
     </div>
-    <div class="right-column">
 
+    <!-- Columna derecha -->
+    <div class="right-column">
       <div class="wishlist-content-wrapper">
-        <!-- MENSAJE DE ARTÍCULOS GUARDADOS VACÍOS -->
         <div class="empty-wishlist">
           <ion-icon name="heart-sharp" class="wishlist-icon"></ion-icon>
           <h2>No tienes ningún artículo guardado</h2>
@@ -55,11 +53,7 @@
           <ion-button class="start-shopping-btn" (click)="startShopping()">Empieza a comprar</ion-button>
         </div>
       </div>
-
     </div>
-
-
-
   </div>
 
   <app-footer></app-footer>

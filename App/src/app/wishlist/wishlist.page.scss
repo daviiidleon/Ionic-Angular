@@ -1,68 +1,3 @@
-ion-content.wishlist-wrapper {
-  --background: transparent;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
-
-.wishlist-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 65%;
-}
-
-.empty-wishlist {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  height: 100%;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.empty-wishlist h2 {
-  font-size: 2rem; /* Aumentado tamaño de fuente */
-  margin-bottom: 1rem;
-}
-
-.empty-wishlist p {
-  color: #666;
-  font-size: 16px; /* Aumentado tamaño de fuente */
-  max-width: 300px;
-  margin-bottom: 2rem;
-}
-
-.wishlist-icon {
-  font-size: 48px; /* Aumentado tamaño del icono */
-  margin-bottom: 1rem;
-}
-
-.start-shopping-btn {
-  --background: #000;
-  --color: #fff;
-  height: 43px; /* Aumentado tamaño del botón */
-  font-size: 15px; /* Aumentado tamaño de fuente */
-  margin-bottom: 1rem;
-  width: 230px;
-}
-
-app-footer {
-  margin-top: auto; /* Empuja el footer al fondo */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto; /* Asegura que el footer se ajuste a su contenido */
-  background-color: #fff; /* Color de fondo del footer */
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
-}
-
-//
 .main-container {
   display: flex;
   flex-direction: row;
@@ -71,20 +6,14 @@ app-footer {
   gap: 20px;
 }
 
+/* Columna izquierda */
 .left-column {
   flex: 1;
   min-width: 250px;
   margin-left: 3%;
 }
 
-.right-column {
-  flex: 2;
-  min-width: 500px;
-  padding-left: 40px;
-  margin-right: 14%;
-  margin-top: 3%;
-}
-
+/* Cabecera del perfil */
 .profile-header {
   text-align: left;
   padding: 30px 20px 10px;
@@ -100,6 +29,7 @@ app-footer {
   color: #777;
 }
 
+/* Contenedor de opciones */
 .options-container {
   display: flex;
   flex-direction: column;
@@ -126,4 +56,88 @@ app-footer {
   font-size: 28px;
   color: #3a3a3a;
   margin-right: 16px;
+}
+
+.text-container .title {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.text-container .description {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 0;
+}
+
+/* Columna derecha */
+.right-column {
+  flex: 2;
+  min-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  margin-right: 14%;
+  margin-top: 3%;
+}
+
+/* Wishlist centrada */
+.wishlist-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+.empty-wishlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-wishlist h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.empty-wishlist p {
+  font-size: 16px;
+  color: #555;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.wishlist-icon {
+  font-size: 64px;
+  color: #000; /* Modificado: icono negro */
+  margin-bottom: 20px;
+}
+
+.start-shopping-btn {
+  --background: #000;
+  --color: #fff;
+  font-size: 15px;
+  height: 45px;
+  padding: 0 24px;
+  width: auto;
+  border-radius: 0px; /* Modificado: sin bordes redondeados */
+}
+
+/* Footer */
+app-footer {
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
 }

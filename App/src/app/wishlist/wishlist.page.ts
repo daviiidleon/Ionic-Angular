@@ -6,6 +6,17 @@ import {CabeceraComponent} from "../cabecera/cabecera.component";
 import {FooterComponent} from "../footer/footer.component";
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import {addIcons} from "ionicons";
+import {
+  archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp,
+  cartOutline,
+  cartSharp, heartOutline, heartSharp,
+  homeSharp,
+  logInSharp,
+  logOutOutline, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+  personCircleOutline,
+  shirtSharp, trashOutline, trashSharp, warningOutline, warningSharp
+} from "ionicons/icons";
 
 @Component({
   selector: 'app-wishlist',
@@ -21,9 +32,19 @@ export class WishlistPage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+    addIcons({
+      logOutOutline, cartOutline, personCircleOutline, cartSharp, shirtSharp,
+      logInSharp, homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+      heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp,
+      warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
+    });
+  }
 
   ngOnInit() {
+    this.authService.getAuthUserObservable().subscribe(async user => {
+      this.user = user;
+    });
   }
 
   goToMyData() {
