@@ -130,12 +130,23 @@
 
     <div class="right-column">
       <div class="wishlist-content-wrapper">
-        <div class="empty-wishlist">
+        <div *ngIf="!loading && wishlist.length === 0" class="empty-wishlist">
           <ion-icon name="heart-sharp" class="wishlist-icon"></ion-icon>
           <h2>No tienes ningún artículo guardado</h2>
           <p>Guarda mientras compras seleccionando el corazón, nosotros sincronizamos tus artículos guardados en todos tus dispositivos. Así de fácil.</p>
           <ion-button class="start-shopping-btn" (click)="startShopping()">Empieza a comprar</ion-button>
         </div>
+
+        <div *ngIf="wishlist.length > 0" class="wishlist-items">
+          <ion-card *ngFor="let product of wishlist" (click)="goToProduct(product._id)">
+            <ion-img [src]="product.image"></ion-img>
+            <ion-card-header>
+              <ion-card-title>{{ product.name }}</ion-card-title>
+              <p>{{ product.price | currency }}</p>
+            </ion-card-header>
+          </ion-card>
+        </div>
+
       </div>
     </div>
   </div>

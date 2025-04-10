@@ -82,6 +82,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { WishlistService } from '../services/wish-list.service';
 import { ProductsService, Product } from '../services/products.service';
 import {
   IonCard,
@@ -124,20 +125,43 @@ import {FooterComponent} from "../footer/footer.component";
 })
 export class ProductoPage implements OnInit {
 
+  isFavorite: boolean = false;
+
   productId: string | null = null;
   product: Product | null = null;
   isLoading: boolean = true;
   selectedSize: string | null = null; // Variable para almacenar la talla seleccionada
 
   constructor(
+    private wishlistService: WishlistService,
+
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.productId) {
-      this.loadProductDetail(this.productId);
+      await this.loadProductDetail(this.productId);
+      this.checkIfFavorite();
+    }
+  }
+
+  async checkIfFavorite() {
+    if (this.product?._id) {
+      this.isFavorite = await this.wishlistService.isInWishlist(this.product._id);
+    }
+  }
+
+  async toggleFavorite() {
+    if (!this.product) return;
+
+    if (this.isFavorite) {
+      await this.wishlistService.removeFromWishlist(this.product._id);
+      this.isFavorite = false;
+    } else {
+      await this.wishlistService.addToWishlist(this.product);
+      this.isFavorite = true;
     }
   }
 
