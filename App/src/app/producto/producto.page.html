@@ -1,29 +1,68 @@
+<!--
 <ion-header>
   <app-cabecera></app-cabecera>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Spinner de carga -->
   <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
-  <!-- Producto -->
   <ion-card *ngIf="!isLoading && product" class="product-container">
-    <!-- Contenedor de Imagen e Información -->
     <div class="product-details">
-      <!-- Imagen del producto -->
       <div class="product-image">
-        <ion-img [src]="product.image" alt="{{ product.name }}" ></ion-img>
-        <!--<img [src]="product.image" alt="{{ product.name }}" />-->
+        <ion-img [src]="product.image" alt="{{ product.name }}"></ion-img>
       </div>
 
-      <!-- Información del producto -->
       <div class="product-info">
         <h1 class="product-title">{{ product.name }}</h1>
         <p class="product-price">{{ product.price | currency }}</p>
         <p class="product-category">{{ product.category }}</p>
         <p class="product-description">{{ product.description }}</p>
 
-        <!-- Selección de Tallas -->
+        <div class="size-selection">
+          <p><strong>Tallas disponibles:</strong></p>
+          <div class="sizes">
+            <div *ngFor="let size of product?.sizes"
+                 [class.selected]="selectedSize === size"
+                 (click)="selectSize(size)">
+              {{ size }}
+            </div>
+          </div>
+        </div>
+
+        <div class="add-to-wishlist-container">
+          <ion-icon class="favorite-icon" name="heart-sharp" size="large" (click)="addToWishlist()"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <div *ngIf="!isLoading && !product">
+    <p>Producto no encontrado.</p>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>
+-->
+
+<ion-header>
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+
+  <ion-card *ngIf="!isLoading && product" class="product-container">
+    <div class="product-details">
+      <div class="product-image">
+        <ion-img [src]="product.image" alt="{{ product.name }}" ></ion-img>
+      </div>
+
+      <div class="product-info">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-price">{{ product.price | currency }}</p>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-description">{{ product.description }}</p>
+
         <div class="size-selection">
           <p><strong>Tallas disponibles:</strong></p>
           <div class="sizes">
@@ -35,7 +74,6 @@
           </div>
         </div>
 
-        <!-- Botón de añadir a la cesta -->
         <div class="add-to-cart-container">
           <ion-icon  class="favorite-icon" name="heart-sharp" size="large"></ion-icon>
           <ion-button expand="full" [disabled]="!selectedSize" class="ion-no-margin">
@@ -46,7 +84,6 @@
     </div>
   </ion-card>
 
-  <!-- Producto no encontrado -->
   <div *ngIf="!isLoading && !product">
     <p>Producto no encontrado.</p>
   </div>

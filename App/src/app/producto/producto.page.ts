@@ -1,3 +1,83 @@
+/*
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsService, Product } from '../services/products.service';
+import { FirebaseService } from '../services/firebase.service';
+import { IonCard, IonContent, IonHeader, IonSpinner, IonIcon, IonImg } from "@ionic/angular/standalone";
+import { CabeceraComponent } from "../cabecera/cabecera.component";
+import { FooterComponent } from "../footer/footer.component";
+import { CurrencyPipe } from "@angular/common";
+
+@Component({
+  selector: 'app-producto',
+  templateUrl: './producto.page.html',
+  styleUrls: ['./producto.page.scss'],
+  standalone: true,
+  imports: [
+    IonContent,
+    IonHeader,
+    IonCard,
+    IonSpinner,
+    CabeceraComponent,
+    IonIcon,
+    FooterComponent,
+    IonImg,
+    CurrencyPipe
+  ]
+})
+export class ProductoPage implements OnInit {
+
+  productId: string | null = null;
+  product: Product | null = null;
+  isLoading: boolean = true;
+  selectedSize: string | null = null; // Variable para almacenar la talla seleccionada
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private productsService: ProductsService,
+    private firebaseService: FirebaseService
+  ) { }
+
+  ngOnInit() {
+    this.productId = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.productId) {
+      this.loadProductDetail(this.productId);
+    }
+  }
+
+  loadProductDetail(id: string) {
+    this.isLoading = true;
+    this.productsService.getProductById(id).then(product => {
+      this.product = product;
+      this.isLoading = false;
+    }).catch(error => {
+      console.error('Error al cargar el producto:', error);
+      this.isLoading = false;
+    });
+  }
+
+  // Método para seleccionar una talla
+  selectSize(size: string) {
+    this.selectedSize = size;
+  }
+
+  // Agregar producto a la wishlist
+  async addToWishlist() {
+    if (this.product && this.selectedSize) {
+      const user = this.firebaseService.getAuth().currentUser;
+      if (user) {
+        try {
+          await this.firebaseService.addToWishlist(user.uid, this.product._id);
+          console.log('Producto añadido a la wishlist');
+        } catch (error) {
+          console.error('Error al añadir a la wishlist:', error);
+        }
+      }
+    }
+  }
+}
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -77,3 +157,4 @@ export class ProductoPage implements OnInit {
     this.selectedSize = size;
   }
 }
+

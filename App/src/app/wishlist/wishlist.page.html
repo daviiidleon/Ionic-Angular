@@ -1,10 +1,10 @@
+<!-- 2
 <ion-header [translucent]="true">
   <app-cabecera></app-cabecera>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="main-container">
-    <!-- Columna izquierda -->
     <div class="left-column">
       <div class="profile-header">
         <h2>Hola, {{ user?.displayName || user?.email }}</h2>
@@ -43,7 +43,91 @@
       </div>
     </div>
 
-    <!-- Columna derecha -->
+    <div *ngIf="wishlist && wishlist.length > 0" class="right-column">
+      <div class="wishlist-content-wrapper">
+        <ion-card *ngFor="let product of wishlist" class="product-container">
+          <div class="product-details">
+            <div class="product-image">
+              <ion-img [src]="product.image" alt="{{ product.name }}"></ion-img>
+            </div>
+
+            <div class="product-info">
+              <h1 class="product-title">{{ product.name }}</h1>
+              <p class="product-price">{{ product.price | currency }}</p>
+              <p class="product-category">{{ product.category }}</p>
+              <p class="product-description">{{ product.description }}</p>
+
+              <div class="add-to-cart-container">
+                <ion-icon class="favorite-icon" name="heart-sharp" size="large"></ion-icon>
+                <ion-button expand="full">Añadir a la cesta</ion-button>
+              </div>
+            </div>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngIf="!wishlist || wishlist.length === 0" class="right-column">
+      <div class="wishlist-content-wrapper">
+        <div class="empty-wishlist">
+          <ion-icon name="heart-sharp" class="wishlist-icon"></ion-icon>
+          <h2>No tienes ningún artículo guardado</h2>
+          <p>Guarda mientras compras seleccionando el corazón, nosotros sincronizamos tus artículos guardados en todos tus dispositivos. Así de fácil.</p>
+          <ion-button class="start-shopping-btn" (click)="startShopping()">Empieza a comprar</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>
+-->
+
+
+<ion-header [translucent]="true">
+  <app-cabecera></app-cabecera>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-container">
+    <div class="left-column">
+      <div class="profile-header">
+        <h2>Hola, {{ user?.displayName || user?.email }}</h2>
+        <p>Gestiona tu cuenta y opciones a continuación.</p>
+      </div>
+
+      <div class="options-container">
+        <div class="option-box" (click)="goToMyData()">
+          <ion-icon name="person-circle-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Mis Datos</p>
+            <p class="description">Edita tus datos personales y de facturación</p>
+          </div>
+        </div>
+        <div class="option-box" (click)="goToMyPurchases()">
+          <ion-icon name="cart-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Mis Compras</p>
+            <p class="description">Consulta tus compras online</p>
+          </div>
+        </div>
+        <div class="option-box" (click)="goToMyFavorites()">
+          <ion-icon name="heart-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Mis Favoritos</p>
+            <p class="description">Gestiona y accede a tus favoritos</p>
+          </div>
+        </div>
+        <div class="option-box" (click)="logout()">
+          <ion-icon name="log-out-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Cerrar Sesión</p>
+            <p class="description">Salir de tu cuenta</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="right-column">
       <div class="wishlist-content-wrapper">
         <div class="empty-wishlist">
@@ -58,3 +142,4 @@
 
   <app-footer></app-footer>
 </ion-content>
+
