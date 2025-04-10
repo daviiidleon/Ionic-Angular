@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {
   IonButton,
   IonContent,
@@ -13,6 +13,18 @@ import {CabeceraComponent} from "../cabecera/cabecera.component";
 import {FooterComponent} from "../footer/footer.component";
 import {CurrencyPipe} from "@angular/common";
 import { Router } from '@angular/router';
+import {AuthService} from "../services/auth.service";
+import {addIcons} from "ionicons";
+import {
+  archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp,
+  cartOutline,
+  cartSharp, heartOutline, heartSharp,
+  homeSharp,
+  logInSharp,
+  logOutOutline, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+  personCircleOutline,
+  shirtSharp, trashOutline, trashSharp, warningOutline, warningSharp
+} from "ionicons/icons";
 
 
 @Component({
@@ -35,6 +47,8 @@ import { Router } from '@angular/router';
   ]
 })
 export class PayPage implements OnInit {
+  user: any = null;
+
 
   cartItems = [
     {
@@ -51,9 +65,24 @@ export class PayPage implements OnInit {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private cd: ChangeDetectorRef,
+    private router: Router
+  ) {
+    addIcons({
+      logOutOutline, cartOutline, personCircleOutline, cartSharp, shirtSharp,
+      logInSharp, homeSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+      heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp,
+      warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
+    });
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.getAuthUserObservable().subscribe(async user => {
+      this.user = user;
+    });
+  }
 
   getTotal(): number {
     return this.cartItems.reduce((acc, item) => acc + item.price, 0);
@@ -74,5 +103,24 @@ export class PayPage implements OnInit {
 
   seguirComprando() {
     this.router.navigate(['/product-list']);
+  }
+
+  goToMyData() {
+    this.router.navigate(['/data']);
+  }
+
+  goToMyPurchases() {
+    this.router.navigate(['/pay']);
+  }
+
+  goToMyFavorites() {
+    this.router.navigate(['/wishlist']);
+  }
+
+  logout() {
+    this.authService.logout().then(() => {
+      this.user = null;
+      this.router.navigate(['/home']);
+    });
   }
 }

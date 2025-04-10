@@ -2,21 +2,63 @@
   <app-cabecera></app-cabecera>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="pay-page">
-  <div class="cart-wrapper">
-    <div class="cart-container">
-
-      <!-- MOSTRAR SIEMPRE EL MENSAJE DE BOLSA VACÍA -->
-      <div class="empty-cart">
-        <ion-icon class="icono" name="cart-sharp"></ion-icon>
-        <h2>Tu bolsa está vacía</h2>
-        <p>Los artículos permanecerán en tu bolsa durante 60 minutos. Después se moverán a tus artículos guardados.</p>
-        <ion-button class="saved-items-btn" (click)="verGuardados()">Ver artículos guardados</ion-button>
-        <a class="seguir-comprando" (click)="seguirComprando()">Seguir comprando</a>
+<ion-content [fullscreen]="true">
+  <div class="main-container">
+    <!-- Columna izquierda -->
+    <div class="left-column">
+      <div class="profile-header">
+        <h2>Hola, {{ user?.displayName || user?.email }}</h2>
+        <p>Gestiona tu cuenta y opciones a continuación.</p>
       </div>
 
+      <div class="options-container">
+        <div class="option-box" (click)="goToMyData()">
+          <ion-icon name="person-circle-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Mis Datos</p>
+            <p class="description">Edita tus datos personales y de facturación</p>
+          </div>
+        </div>
+        <div class="option-box" (click)="goToMyPurchases()">
+          <ion-icon name="cart-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Mis Compras</p>
+            <p class="description">Consulta tus compras online</p>
+          </div>
+        </div>
+        <div class="option-box" (click)="goToMyFavorites()">
+          <ion-icon name="heart-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Mis Favoritos</p>
+            <p class="description">Gestiona y accede a tus favoritos</p>
+          </div>
+        </div>
+        <div class="option-box" (click)="logout()">
+          <ion-icon name="log-out-outline" size="large"></ion-icon>
+          <div class="text-container">
+            <p>Cerrar Sesión</p>
+            <p class="description">Salir de tu cuenta</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <app-footer></app-footer>
+    <!-- Columna derecha -->
+    <div class="right-column">
+      <div class="cart-wrapper">
+        <div class="cart-container">
+          <!-- MOSTRAR SIEMPRE EL MENSAJE DE BOLSA VACÍA -->
+          <div class="empty-cart">
+            <ion-icon class="icono" name="cart-sharp"></ion-icon>
+            <h2>Tu bolsa está vacía</h2>
+            <p>Los artículos permanecerán en tu bolsa durante 60 minutos. Después se moverán a tus artículos guardados.</p>
+            <ion-button class="saved-items-btn" (click)="verGuardados()">Ver artículos guardados</ion-button>
+            <a class="seguir-comprando" (click)="seguirComprando()">Seguir comprando</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <app-footer></app-footer>
 </ion-content>
